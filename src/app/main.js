@@ -1,15 +1,21 @@
 define([
+  'jquery',
   // Local files
   'data/sample',
+  'drawPicker',
 
   // Load text files (HTML, CSV, SVG)
   'text!html/layout.html',
 
   // Load external files
   'js!libs/Tween.js',
-  'js!http://code.jquery.com/jquery-1.10.2.min.js'
-], function(Data, LayoutTemplate)
-{
+
+], function(
+  $,
+  Data,
+  drawPicker,
+  LayoutTemplate
+){
 
 
   function init(el) {
@@ -32,6 +38,8 @@ define([
     $(el).append(headerElm);
 
     $.each(Data.people, addPerson);
+
+    drawPicker.render();
 
   }
 

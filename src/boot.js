@@ -10,7 +10,10 @@ define([], function() {
     boot: function (el, context, config) {
       var cfg = {
         context: 'interactive',
-        baseUrl: 'app/'
+        baseUrl: 'app/',
+        paths: {
+          'jquery': 'libs/jquery-1.10.2.min'
+        }
       };
 
       curl(cfg, ['main']).then(function(Main) {
