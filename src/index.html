@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+
+    <figure class="gu-interactive"></figure>
+
+    <!-- Simulate loading JS into Guardian page -->
+    <script src="curl.js"></script>
+    <script>
+        curl(['boot.js']).then(function(app) {
+            var el = document.querySelector('.gu-interactive');
+            app.boot(el, window, {});
+        });
+    </script>
+
+</body>
+</html>
