@@ -1,7 +1,7 @@
 # blueprint
 
 
-A simplified interactive template for to simulate Guardian next-gen JS loading and layout.
+A simplified interactive template to simulate Guardian next-gen JS loading and layout.
 
 ## Starting
 Either point your local web server at the `src` folder or if you have nodeJS and Grunt installed can do the following:
