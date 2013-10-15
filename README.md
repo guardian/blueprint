@@ -32,6 +32,7 @@ the `main.js`.
     + app
       - main.js   (The core JS file for the interactive)
       + css
+      + imgs
       + data      (Store model data)
       + libs      (JavaScript libraries)
       + templates (HTML and handlebar templates)
