@@ -1,9 +1,9 @@
-blueprint
-=========
+# blueprint
+
 
 A simplified interactive template for to simulate Guardian next-gen JS loading and layout.
 
-# Starting
+## Starting
 Either point your local web server at the `src` folder or if you have nodeJS and Grunt installed can do the following:
 
 ```shell
@@ -12,7 +12,7 @@ grunt
 ```
 
 
-# Project structure
+## Project structure
 Most of the time you'll only need to work within the `src/app` folder. Create new views, templates and load them into
 the `main.js`.
 
@@ -35,7 +35,7 @@ the `main.js`.
       + views     (AMD views)
 ```
 
-# Adding additional libraries
+## Adding additional libraries
 If you want to include additional libraries you first need to add their paths to `boot.js` file, then you can
 reference them as a dependency in your module.
 
