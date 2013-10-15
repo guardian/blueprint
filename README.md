@@ -11,7 +11,7 @@ npm install
 grunt
 ```
 
-Add you code and files inside `src/app`.
+Add your code and files inside `src/app`.
 
 
 
