@@ -11,6 +11,9 @@ npm install
 grunt
 ```
 
+Add you code and files inside `src/app`.
+
+
 
 ## Project structure
 Most of the time you'll only need to work within the `src/app` folder. Create new views, templates and load them into
