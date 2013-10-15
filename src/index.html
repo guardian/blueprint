@@ -1,14 +1,53 @@
 <!DOCTYPE html>
 <html>
-<head></head>
-<body>
+<head>
 
-    <figure class="gu-interactive"></figure>
+    <style>
+        <!-- Simulating next-gen -->
+        body { margin: 0; padding: 0; }
+        a { color: #005689; }
+        .g-header { background-color: #214583; color: #FFF; padding: 10px; }
+        .g-body { width: 100%; }
+        .g-content { padding: 0 10px; }
+        .g-col1 { display: none; }
+
+
+        @media (min-width: 41.25em) {
+            .g-content { width: 620px; margin: 0 auto; }
+        }
+
+        @media (min-width: 61.25em) {
+            .g-content { width: 60%; max-width: 620px; margin:0; float: left; }
+        }
+
+        @media (min-width: 81.25em) {
+            .g-body { width: 1260px; margin: 0 auto; }
+            .g-content { width: 620px; }
+            .g-col1 { display: block; float: left; width: 220px; padding: 100px 0 0 10px; }
+            .g-col2 { display: block; float: right; width: 300px; padding: 100px 10px 0 0; }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="g-header">theguardian - Interactive next-gen sampler</div>
+        <div class="g-body">
+            <div class="g-col1">Date: Monday xxx</div>
+            <div class="g-content">
+
+                <h1>Heading</h1>
+
+                <figure class="gu-interactive"></figure>
+
+            </div>
+            <div class="g-col2">Share links [x] [x] [x]</div>
+        </div>
+    </div>
 
     <!-- Simulate loading JS into Guardian page -->
-    <script src="curl.js"></script>
+    <script src="require.js"></script>
     <script>
-        curl(['boot.js']).then(function(app) {
+        require(['boot.js'], function(app) {
             var el = document.querySelector('.gu-interactive');
             app.boot(el, window, {});
         });

@@ -1,32 +1,33 @@
 define([
+  // Libraries
   'jquery',
+  'Handlebars',
+
   // Local files
   'data/sample',
-  'drawPicker',
+  'views/drawPicker',
 
-  // Load text files (HTML, CSV, SVG)
-  'text!html/layout.html',
-
-  // Load external files
-  'js!libs/Tween.js',
-
+  // Load text files (HTML, Handlebars, CSV, SVG)
+  'text!templates/html_layout.html',
+  'text!templates/handlebars_example.hbs'
 ], function(
   $,
-  Data,
+  Handlebars,
+  SampleData,
   drawPicker,
-  LayoutTemplate
+  HTMLTemplate,
+  HandleBarsExample
 ){
 
 
   function init(el) {
-    // You code goes here
+    // Here's where you add your code
 
-    // Example
+    // Inline example
+    $.each(SampleData.people, addPerson);
     function addPerson(index, person) {
       var newPerson = $('<div>').addClass('person');
-
       newPerson.text( person.name + ' is ' + person.age + ' years old.');
-
       newPerson.on('click', function() {
         $(this).toggleClass('active');
       });
@@ -34,13 +35,18 @@ define([
       $(el).append(newPerson);
     }
 
-    var headerElm = $(LayoutTemplate);
+    // Modifying the DOM directly example
+    var headerElm = $(HTMLTemplate);
     $(el).append(headerElm);
+    $(el).css('border', '2px dashed pink');
 
-    $.each(Data.people, addPerson);
 
-    drawPicker.render();
+    // Rendering Handlebars template
+    var template = Handlebars.compile(HandleBarsExample);
+    $(el).append(template(SampleData));
 
+    // Render view module
+    $(el).append(drawPicker.render());
   }
 
 

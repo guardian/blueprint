@@ -8,15 +8,26 @@ define([], function() {
      *
      **/
     boot: function (el, context, config) {
-      var cfg = {
+
+      // Information about Require config: http://requirejs.org/docs/api.html#config-paths
+      var RequireConfig = {
         context: 'interactive',
         baseUrl: 'app/',
         paths: {
-          'jquery': 'libs/jquery-1.10.2.min'
+          'jquery': 'libs/jquery-1.10.2.min',
+          'Handlebars': 'libs/handlebars',
+          'text': '../text'
+        },
+        shim: {
+          Handlebars: {
+            exports: 'Handlebars'
+          }
         }
       };
 
-      curl(cfg, ['main']).then(function(Main) {
+      var ReqGI = require.config(RequireConfig);
+
+      ReqGI(['main'], function(Main) {
         addCSS();
         Main.init(el);
       });
