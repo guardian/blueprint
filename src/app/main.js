@@ -1,5 +1,6 @@
 define([
   // Libraries
+  'require',
   'jquery',
   'Handlebars',
 
@@ -11,6 +12,7 @@ define([
   'text!templates/html_layout.html',
   'text!templates/handlebars_example.hbs'
 ], function(
+  require,
   $,
   Handlebars,
   SampleData,
@@ -20,8 +22,15 @@ define([
 ){
 
 
+
   function init(el) {
     // Here's where you add your code
+
+    // Modifying the DOM directly example
+    var headerElm = $(HTMLTemplate);
+    $(el).append(headerElm);
+    $(el).css('border', '2px dashed pink');
+
 
     // Inline example
     $.each(SampleData.people, addPerson);
@@ -35,15 +44,15 @@ define([
       $(el).append(newPerson);
     }
 
-    // Modifying the DOM directly example
-    var headerElm = $(HTMLTemplate);
-    $(el).append(headerElm);
-    $(el).css('border', '2px dashed pink');
-
 
     // Rendering Handlebars template
     var template = Handlebars.compile(HandleBarsExample);
-    $(el).append(template(SampleData));
+    var templateConfig = {
+      people: SampleData.people,
+      img_path: require.toUrl('imgs/')
+    };
+
+    $(el).append(template(templateConfig));
 
     // Render view module
     $(el).append(drawPicker.render());
