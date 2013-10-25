@@ -1,10 +1,32 @@
-define(['jquery'], function($) {
+define(['jquery', 'Handlebars', 'text!templates/handlebars_example.hbs', 'views/knockoutStage', 'data/sample'],
+	function($, Handlebars, HandleBarsExample, knockoutStageView, TeamModel) {
 
-  function render() {
-    return $('<p>animation thing</p>');
-  }
+	var $html = $('<div class="groupStageWrapper">');
+	var template = Handlebars.compile(HandleBarsExample);
 
-  return {
-    render: render
-  }
+	
+	function render() {
+		var templateConfig = {
+		  groups: TeamModel.generateGroups(),
+		  img_path: require.toUrl('imgs/')
+		};
+		console.log(TeamModel.generateGroups());
+		// Render template and wrap in jQuery object
+		$html.html(template(templateConfig));
+		$html.find('.knockout_wrapper').html(knockoutStageView.render());
+
+		// round 2
+
+		//render
+
+
+		// round 3 render
+		
+
+		return $html;
+	}
+
+	return {
+		render: render
+	}
 });

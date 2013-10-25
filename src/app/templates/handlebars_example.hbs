@@ -1,7 +1,40 @@
-<ul>
-  {{#each people}}
-    <li>Name: {{ this.name }} - Age: {{ this.age }}</li>
-  {{/each}}
-</ul>
 
-<img src="{{ img_path }}gir.gif" />
+<h3 class="finalsTitle">Group Stage</h3>
+
+<div class="share"><p>Like this group stage? Share the draw <span class="shareButtons"><img src="app/imgs/facebook.png" /><img src="app/imgs/twitter.png" /></span></p></div>
+<div class="groupStage">
+	{{#each groups}}
+		<div class="group">
+		<h4>{{this.groupName}}</h4>
+		<div class="images">
+			{{#each teams}}
+				
+				<img src="app/imgs/teams/squads/{{this.teamPhoto}}" class="teamPhoto teamPhoto{{@index}}"/>
+				
+			{{/each}}
+			<div class="clearboth"></div>
+		</div>
+		<div class="teams">
+			<ul>
+			{{#each teams}}
+				<li>
+					<img class="countryFlag" src="app/imgs/flags/{{this.flagImage}}"/> 
+					<div class="teamInfo">
+						<div class="teamName">{{this.teamName}}</div>
+						<div class="{{this.winner}}"></div>
+						<div class="clearboth"></div>
+						<div class="teamPot">Pot {{this.pot}} - {{this.cont}}</div>
+					</div>
+					<div class="clearboth"></div>
+				</li>
+			{{/each}}
+			</ul>
+		</div>
+		</div>
+  {{/each}}
+  <div class="clearboth"></div>
+</div>
+
+
+<div class="knockout_wrapper"></div>
+

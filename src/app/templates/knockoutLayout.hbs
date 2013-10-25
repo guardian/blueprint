@@ -1,0 +1,86 @@
+<h3 class="finalsTitle">So, who will win the worldcup?</h3>
+<div class="finals quarterfinals">
+	<div class="title">
+		<h4>Quarter finals</h4>
+	</div>
+	<div class="matches">
+		{{#each quarterFinals}}
+			<div class="match">
+				{{#each this}}
+					<div class="team finals{{this.winQuarterFinal}}">
+						<img class="countryFlag" src="app/imgs/flags/{{this.flagImage}}"/> 
+						<div class="teamInfo">
+							<div class="teamName">{{this.teamName}}</div>
+							<div class="clearboth"></div>
+							<div class="teamPot">Pot {{this.pot}} - {{this.cont}}</div>
+						</div>
+						<div class="clearboth"></div>
+					</div>
+					<div class="teamSeparator{{@index}}"></div>
+				{{/each}}
+			</div>
+
+		{{/each}}
+		<div class="clearboth"></div>
+	</div>
+</div>
+
+<div class="finals semifinals">
+	<div class="title">
+		<h4>Semi Finals</h4>
+	</div>
+	<div class="matches">
+		{{#each semiFinals}}
+			<div class="match">
+				{{#each this}}
+				<div class="team finals{{this.winSemiFinal}}">
+					<img class="countryFlag" src="app/imgs/flags/{{this.flagImage}}"/> 
+					<div class="teamInfo">
+						<div class="teamName">{{this.teamName}}</div>
+						<div class="clearboth"></div>
+						<div class="teamPot">Pot {{this.pot}} - {{this.cont}}</div>
+					</div>
+					<div class="clearboth"></div>
+				</div>
+				<div class="teamSeparator{{@index}}"></div>
+				{{/each}}
+			</div>
+		{{/each}}
+		<div class="clearboth"></div>
+	</div>
+</div>
+
+<div class="finals final">
+	<div class="title">
+		<h4>Final</h4>
+	</div>
+	<div class="matches">
+		{{#each final}}
+			<div class="match">
+				{{#each this}}
+				<div class="team finals{{this.winFinal}}">
+					<img class="countryFlag" src="app/imgs/flags/{{this.flagImage}}"/> 
+					<div class="teamInfo">
+						<div class="teamName">{{this.teamName}}</div>
+						<div class="championship{{this.winFinal}}"></div>
+						<div class="clearboth"></div>
+						<div class="teamPot">Pot {{this.pot}} - {{this.cont}}</div>
+					</div>
+					<div class="clearboth"></div>
+				</div>
+				<div class="teamSeparator{{@index}}"></div>
+				{{/each}}
+			</div>
+		{{/each}}
+		<div class="clearboth"></div>
+	</div>
+</div>
+<div class="divider"></div>
+<div class="share"><p>Did your favourite team win? Share this draw  <img src="app/imgs/facebook.png" /><img src="app/imgs/twitter.png" /></p></div>
+
+<!-- <h2>Winner</h2>
+{{winner.teamName}}
+ -->
+
+
+
