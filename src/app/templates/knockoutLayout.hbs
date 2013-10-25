@@ -7,7 +7,7 @@
 		{{#each quarterFinals}}
 			<div class="match">
 				{{#each this}}
-					<div class="team finals{{this.winQuarterFinal}}">
+					<div class="team finals{{this.winQuarterFinal}} team{{@index}}">
 						<img class="countryFlag" src="app/imgs/flags/{{this.flagImage}}"/> 
 						<div class="teamInfo">
 							<div class="teamName">{{this.teamName}}</div>
@@ -33,7 +33,7 @@
 		{{#each semiFinals}}
 			<div class="match">
 				{{#each this}}
-				<div class="team finals{{this.winSemiFinal}}">
+				<div class="team finals{{this.winSemiFinal}} team{{@index}}">
 					<img class="countryFlag" src="app/imgs/flags/{{this.flagImage}}"/> 
 					<div class="teamInfo">
 						<div class="teamName">{{this.teamName}}</div>
@@ -58,7 +58,7 @@
 		{{#each final}}
 			<div class="match">
 				{{#each this}}
-				<div class="team finals{{this.winFinal}}">
+				<div class="team finals{{this.winFinal}} team{{@index}}">
 					<img class="countryFlag" src="app/imgs/flags/{{this.flagImage}}"/> 
 					<div class="teamInfo">
 						<div class="teamName">{{this.teamName}}</div>
