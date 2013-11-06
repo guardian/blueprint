@@ -38,7 +38,6 @@ define([], function() {
         linkElm.setAttribute('type', 'text/css');
         linkElm.setAttribute('href', ReqGI.toUrl('css/styles.css'));
         document.getElementsByTagName('head')[0].appendChild(linkElm);
-
       }
 
     }

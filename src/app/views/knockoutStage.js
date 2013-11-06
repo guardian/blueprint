@@ -8,7 +8,7 @@ define(['jquery', 'Handlebars', 'text!templates/knockoutLayout.hbs', 'data/sampl
 	function render() {
 		var content = TeamModel.getGroups();
 		
-		console.log(content);
+		
 		var templateConfig = {
 		  quarterFinals: content.quarter,
 		  semiFinals: content.semi,
@@ -17,7 +17,7 @@ define(['jquery', 'Handlebars', 'text!templates/knockoutLayout.hbs', 'data/sampl
 		  img_path: require.toUrl('imgs/')
 		};
 		
-
+		console.log(content.winner.teamName);
 		$html.html(template(templateConfig));
 		return $html;
 	}

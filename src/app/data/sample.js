@@ -36,6 +36,8 @@ define(['jquery'], function($) {
 
 	var groupKeys = ['groupA', 'groupB', 'groupC','groupD'];
 	var teamImages;
+	
+
 	function getRandomNumber(){
 	 	var randomGroupNumber = Math.floor(Math.random()*4);
 	 	return randomGroupNumber;
@@ -43,10 +45,15 @@ define(['jquery'], function($) {
 
  	function assignToGroup(team, randomGroupPot, currentPot){
  		var randomNumber = getRandomNumber();
- 		
  		var a = randomGroupPot.indexOf(randomNumber);
- 		if(a == -1){
 
+ 		//Make sure Brazil is always in group A
+ 		if(team.teamName == "Brazil"){
+ 			var currentGroup = groups[groupKeys[0]].teams;
+ 			currentGroup.push(team);
+ 			randomGroupPot.push(0);
+ 		}else{
+ 		if(a == -1){
 	 			var currentGroup = groups[groupKeys[randomNumber]].teams;
 	 			currentGroup.push(team);
 	 			randomGroupPot.push(randomNumber);
@@ -56,13 +63,17 @@ define(['jquery'], function($) {
  		} else if(a > -1){
  			assignToGroup(team, randomGroupPot, currentPot);
  		}
+ 	}	
  		
  	}
 
  	function rankGroups(groups){
- 		teamImages = [];
+ 		//Clear winners for new draw
  		$.each(teams, function(i, team){
  			team.winner = "";
+ 			team.groupStatus = "";
+ 			team.quarterFinalStatus = "";
+ 			team.semiFinalStatus = "";
  		});
 
  		$.each(groups, function(index, group ) {
@@ -70,18 +81,19 @@ define(['jquery'], function($) {
 				orderedGroup = group.teams.sort(function(a,b){ return 0.5-Math.random();});
 				group.teams = orderedGroup;
 				orderedGroup[0].winner = "winner";
+				orderedGroup[0].groupStatus = "Winner of " + group.groupName;
 				orderedGroup[1].winner = "winner";
-				teamImages.push(orderedGroup[1].teamPhoto);
-				teamImages.push(orderedGroup[0].teamPhoto);
+				orderedGroup[1].groupStatus = "Second of " + group.groupName;
 			}else{
 				orderedGroup = group.teams.sort(function(a,b){ return a.rank-b.rank });
 				group.teams = orderedGroup;
 				orderedGroup[0].winner = "winner";
+				orderedGroup[0].groupStatus = "Winner of " + group.groupName;
 				orderedGroup[1].winner = "winner";
-				teamImages.push(orderedGroup[1].teamPhoto);
-				teamImages.push(orderedGroup[0].teamPhoto);
+				orderedGroup[1].groupStatus = "Second of " + group.groupName;
 			}
  		});
+ 		
  		return groups;
  	}
 
@@ -94,80 +106,134 @@ define(['jquery'], function($) {
 		$.each(pots, function(i, pot) {
 			var randomGroupPot = []
 			$.each(pot.teams, function(j, team) {
-				
 	 	 		assignToGroup(team, randomGroupPot, i);
 		 	});	
 			var $currentStatus = $(".currentStatus");
 			$currentStatus.html("Seeding pot " + pot.potName);
 		});
 		return rankGroups(groups);
-		// console.log(rankGroup(groups));
+		
 	}
 
 
-	function calculateResults() {
-			$.each(teams, function(index, val) {
+	function calculateGroupstage() {
+		$.each(teams, function(index, val) {
 			val.winSemiFinal = "";
 			val.winQuarterFinal = "";
 			val.winFinal = "";
-			console.log(teams)
 		});
 		var quarterFinals = {
-			q1: [groups.groupA.teams[0], groups.groupB.teams[1]], //winner group A against second group B
-			q2: [groups.groupA.teams[1], groups.groupB.teams[0]], //winner group B against second group A
-			q3: [groups.groupC.teams[0], groups.groupD.teams[1]], //winner group C against second group D
-			q4: [groups.groupC.teams[1], groups.groupD.teams[0]], //winner group D against second group C
+			q1: {name: "Quarter Final 1", teams: [groups.groupA.teams[0], groups.groupB.teams[1]]}, //winner group A against second group B
+			q2: {name: "Quarter Final 2", teams: [groups.groupA.teams[1], groups.groupB.teams[0]]}, //winner group B against second group A
+			q3: {name: "Quarter Final 3", teams: [groups.groupC.teams[0], groups.groupD.teams[1]]}, //winner group C against second group D
+			q4: {name: "Quarter Final 4", teams: [groups.groupC.teams[1], groups.groupD.teams[0]]} //winner group D against second group C
 		};
 
 		var semiFinals = {
-			s1: [], //winner group A against second group B
-			s2: [], //winner group B against second group A
+			s1: {name: "Semi Final 1", teams: []}, //winner q1 against winner q2
+			s2: {name: "Semi Final 2", teams: []} //winner q3 against winner q4
 		};
 
 		var final = {
-			f1: [], //winner group A against second group B
+			f1: [], //winner s1 against winner s2
 		};
 		var winner;
 
-		$.each(quarterFinals, function(index, teams) {
-			var differenceRank = teams[0].rank - teams[1].rank;
-			var chanceToWin = 50 + differenceRank*1.3; //Kans dat team 2 wint
+		//Deciding who goes to semifinals
+		$.each(quarterFinals, function(index, quarterFinal) {
+			var differenceRank = quarterFinal.teams[0].rank - quarterFinal.teams[1].rank;
+			var chanceToWin;
+			
+			if(differenceRank < -40){
+				chanceToWin = 14;
+			}else if(differenceRank >= -40 && differenceRank < -20){
+				chanceToWin = 25;
+			}else if(differenceRank >= -20 && differenceRank <= 0){
+				chanceToWin = 37;
+			}else if(differenceRank > 0 && differenceRank <= 20){
+				chanceToWin = 63;
+			}else if(differenceRank > 20 && differenceRank <= 40){
+				chanceToWin = 75;
+			}else if(differenceRank > 40){
+				chanceToWin = 86;
+			}
+	
+			//var chanceToWin = 50 + differenceRank*1.3; //Chance that team 2 wins
+			
 			var randomNumber = Math.random()*100;
+			//Team 2 loses, team 1 wins and will be pushed in semifinals
 			if(randomNumber >= chanceToWin){
+				//Winners of q1 and q2 will go to s1
 				if(index == "q1" || index == "q2"){
-					semiFinals.s1.push(teams[0]);
-					teams[0].winQuarterFinal = "winner";
+					semiFinals.s1.teams.push(quarterFinal.teams[0]);
+					quarterFinal.teams[0].winQuarterFinal = "winner";
+					quarterFinal.teams[0].quarterFinalStatus = "Winner of " + quarterFinal.name;
 				} else{
-					semiFinals.s2.push(teams[0]);
-					teams[0].winQuarterFinal = "winner";
+					semiFinals.s2.teams.push(quarterFinal.teams[0]);
+					quarterFinal.teams[0].winQuarterFinal = "winner";
+					quarterFinal.teams[0].quarterFinalStatus = "Winner of " + quarterFinal.name;
 				}
 			}else{
 				if(index == "q1" || index == "q2"){
-					semiFinals.s1.push(teams[1]);
-					teams[1].winQuarterFinal = "winner";
+					semiFinals.s1.teams.push(quarterFinal.teams[1]);
+					quarterFinal.teams[1].winQuarterFinal = "winner";
+					quarterFinal.teams[1].quarterFinalStatus = "Winner of " + quarterFinal.name;
 				} else{
-					semiFinals.s2.push(teams[1]);
-					teams[1].winQuarterFinal = "winner";
+					semiFinals.s2.teams.push(quarterFinal.teams[1]);
+					quarterFinal.teams[1].winQuarterFinal = "winner";
+					quarterFinal.teams[1].quarterFinalStatus = "Winner of " + quarterFinal.name;
 				}
 			}
 		});
 
+		//Deciding who goest to final
 		$.each(semiFinals, function(index, semiFinal) {
-			var differenceRank = semiFinal[0].rank - semiFinal[1].rank;
-			var chanceToWin = 50 + differenceRank*1.3; //Kans dat team 2 wint
-
+			var differenceRank = semiFinal.teams[0].rank - semiFinal.teams[1].rank;
+			var chanceToWin;
+			
+			if(differenceRank < -40){
+				chanceToWin = 14;
+			}else if(differenceRank >= -40 && differenceRank < -20){
+				chanceToWin = 25;
+			}else if(differenceRank >= -20 && differenceRank <= 0){
+				chanceToWin = 37;
+			}else if(differenceRank > 0 && differenceRank <= 20){
+				chanceToWin = 63;
+			}else if(differenceRank > 20 && differenceRank <= 40){
+				chanceToWin = 75;
+			}else if(differenceRank > 40){
+				chanceToWin = 86;
+			}
 			var randomNumber = Math.random()*100;
+
 			if(randomNumber >= chanceToWin){
-				final.f1.push(semiFinal[0]);
-				semiFinal[0].winSemiFinal = "winner";
+				final.f1.push(semiFinal.teams[0]);
+				semiFinal.teams[0].winSemiFinal = "winner";
+				semiFinal.teams[0].semiFinalStatus = "Winner of " + semiFinal.name;
 			}else{
-				final.f1.push(semiFinal[1]);
-				semiFinal[1].winSemiFinal = "winner";
+				final.f1.push(semiFinal.teams[1]);
+				semiFinal.teams[1].winSemiFinal = "winner";
+				semiFinal.teams[1].semiFinalStatus = "Winner of " + semiFinal.name;
 			}
 		});
 
+		//Deciding who wins the final
 		var differenceRank = final.f1[0].rank - final.f1[1].rank;
-		var chanceToWin = 50 + differenceRank*1.3; //Kans dat team 2 wint
+		var chanceToWin;
+			
+			if(differenceRank < -40){
+				chanceToWin = 14;
+			}else if(differenceRank >= -40 && differenceRank < -20){
+				chanceToWin = 25;
+			}else if(differenceRank >= -20 && differenceRank <= 0){
+				chanceToWin = 37;
+			}else if(differenceRank > 0 && differenceRank <= 20){
+				chanceToWin = 63;
+			}else if(differenceRank > 20 && differenceRank <= 40){
+				chanceToWin = 75;
+			}else if(differenceRank > 40){
+				chanceToWin = 86;
+			}
 		var randomNumber = Math.random()*100;
 		if(randomNumber >= chanceToWin){
 			winner = final.f1[0];
@@ -176,7 +242,8 @@ define(['jquery'], function($) {
 			winner = final.f1[1];
 			final.f1[1].winFinal = "winner";
 		}
-		//console.log(winner.teamName, winner.rank);
+
+		//Put all the data into one object
 		var fullKnockout = {
 			"quarter" : quarterFinals,
 			"semi" : semiFinals,
@@ -191,7 +258,7 @@ define(['jquery'], function($) {
 
 
 	function getGroups() {
-		return calculateResults();
+		return calculateGroupstage();
 	}
 
 

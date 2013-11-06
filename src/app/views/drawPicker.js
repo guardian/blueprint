@@ -10,7 +10,7 @@ define(['jquery', 'Handlebars', 'text!templates/handlebars_example.hbs', 'views/
 		  groups: TeamModel.generateGroups(),
 		  img_path: require.toUrl('imgs/')
 		};
-		console.log(TeamModel.generateGroups());
+		
 		// Render template and wrap in jQuery object
 		$html.html(template(templateConfig));
 		$html.find('.knockout_wrapper').html(knockoutStageView.render());
