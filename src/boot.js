@@ -33,11 +33,19 @@ define([], function() {
       });
 
       function addCSS() {
+var linkElm2 = document.createElement('link');
+        linkElm2.setAttribute('rel', 'stylesheet');
+        linkElm2.setAttribute('type', 'text/css');
+        linkElm2.setAttribute('href', ReqGI.toUrl('css/offline/fonts.css'));
+        document.getElementsByTagName('head')[0].appendChild(linkElm2);
+
         var linkElm = document.createElement('link');
         linkElm.setAttribute('rel', 'stylesheet');
         linkElm.setAttribute('type', 'text/css');
         linkElm.setAttribute('href', ReqGI.toUrl('css/styles.css'));
         document.getElementsByTagName('head')[0].appendChild(linkElm);
+
+        
       }
 
     }

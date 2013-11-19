@@ -1,34 +1,4 @@
-@font-face {
-  font-family: 'Guardian Sans Web';
-  src: url('https://s3.amazonaws.com/gdn-pub/fonts/ascii/Guardian Sans Web-Regular.eot');
-  src: url('https://s3.amazonaws.com/gdn-pub/fonts/ascii/Guardian Sans Web-Regular.eot?#iefix') format('embedded-opentype'),
-  url('https://s3.amazonaws.com/gdn-pub/fonts/ascii/Guardian Sans Web-Regular.woff') format('woff'),
-  url('https://s3.amazonaws.com/gdn-pub/fonts/ascii/Guardian Sans Web-Regular.ttf') format('truetype'),
-  url('https://s3.amazonaws.com/gdn-pub/fonts/ascii/Guardian Sans Web-Regular.svg#Guardian Sans Web') format('svg');
-  font-weight: 400;
-  font-style: normal;
-  font-stretch: normal;
-}
 
-@font-face {
-  font-family: 'Guardian Egyptian Bold';
-  src: url('fonts/EgyptianHeadline-Semibold-redux.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-stretch: normal;
-}
-
-@font-face {
-  font-family: 'TextWebEgyptian-Regular';
-  src: url('https://s3.amazonaws.com/gdn-pub/fonts/ascii/Guardian Text Egyp Web-Reg.eot');
-  src: url('https://s3.amazonaws.com/gdn-pub/fonts/ascii/Guardian Text Egyp Web-Reg.eot?#iefix') format('embedded-opentype'),
-  url('https://s3.amazonaws.com/gdn-pub/fonts/ascii/Guardian Text Egyp Web-Reg.woff') format('woff'),
-  url('https://s3.amazonaws.com/gdn-pub/fonts/ascii/Guardian Text Egyp Web-Reg.ttf') format('truetype'),
-  url('https://s3.amazonaws.com/gdn-pub/fonts/ascii/Guardian Text Egyp Web-Reg.svg#Guardian Egyptian Web') format('svg');
-  font-weight: 400;
-  font-style: normal;
-  font-stretch: normal;
-}
 
 
 
@@ -43,7 +13,7 @@ html{
 }
 
 .gu-interactive {
-  font-family: TextWebEgyptian-Regular, Georgia, serif;
+  font-family: 'Guardian Egyptian Text', Arial, serif;
   color: #333;
   margin: 0;
   padding: 0;
@@ -65,10 +35,10 @@ html{
 }
 
 h2{
-  font-family: 'Guardian Egyptian Bold', Arial, Georgia, serif;
+  font-family: 'Guardian Egyptian Headline', Arial, Georgia, serif;
   font-size: 2.4rem;
   text-align: center;
-  font-weight: normal;
+  font-weight: 600;
 }
 
 h3{ 
@@ -89,14 +59,39 @@ h3{
   color: #fff;
   border-radius: 3px;
   font-size: 18px;
-  font-weight: normal;
-  font-family: 'Guardian Egyptian Bold', Arial, Georgia, serif;
+  font-weight: 600;
+  font-family: 'Guardian Egyptian Headline', Arial, Georgia, serif;
   cursor: pointer;
   border: 1px solid #246892;
-  margin-bottom:70px;
+  margin-bottom:30px;
 }
 
+.moreInformation{
+  margin-top:30px;
+  margin-bottom:20px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-transition: 0.2s all linear;
+}
 
+.moreInformation p.invisible{
+  display:block;
+}
+
+.moreInformation h4{
+  text-align: center;
+  font-family: Arial;
+  font-size:12px;
+  font-weight: bold;
+  border:none;
+  color:#777;
+}
+.moreInformation p{
+  line-height: 18px;
+  font-family: Arial;
+  font-size:12px;
+  display: none;
+}
 .groupStageWrapper{
   border-top:1px solid #ddd;
   margin-top: 0;
@@ -144,6 +139,7 @@ h3{
   padding-bottom:33%;
   position: relative;
   background:#eee;
+  display:none;
 }
 
 .images img{
@@ -173,6 +169,7 @@ h4{
   height: auto;
   margin: 0;
   float: left;
+  display:none;
 }
 .teamPhoto2, .teamPhoto3{
   display: none;
@@ -185,11 +182,17 @@ h4{
 }
 
 .teams ul li{
-  font-family: Guardian Sans Web, Arial;
+  font-family: Guardian Sans Headline, Arial;
   border-top: 1px solid #ececec;
   padding: 4px 0;
   opacity:0;
-  -webkit-transition: opacity 0.2s linear;
+  -webkit-transition: opacity 0.1s linear;
+  font-weight: normal;
+}
+.teams ul li.ranked{
+  display:none;
+  opacity:0;
+  -webkit-transition:1s opacity linear;
 }
 
 .teams ul li:nth-of-type(1){
@@ -217,7 +220,7 @@ h4{
   margin-top: 3px;
 }
 .teamName{
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   float: left;
 }
 
@@ -231,6 +234,7 @@ h4{
   float: right;
   margin-top: 5px;
   border-radius: 3px;
+  opacity:0;
 }
 
 .championshipwinner{
@@ -258,28 +262,26 @@ h4{
   margin-top: 0;
 }
 
-.share img{
-  width: 30px;
-  height: 30px;
-  position: relative;
-  top:14px;
-  margin-right: 2px;
-}
 .shareButtons{
   display: block;
   margin: 0 auto;
 }
 
+.showWinners{
+  margin-bottom:80px;
+}
+
 
 .knockout_wrapper{
   margin-top: 40px;
-  
+  display:none;
 }
 
 .finalsTitle{
-  font-family: 'Guardian Egyptian Bold', Arial, Georgia, serif;
+  font-family: 'Guardian Egyptian Text', Arial, Georgia, serif;
   font-size: 2.6rem;
   margin-bottom: 0;
+  font-weight:500;
 }
 
 .final{
@@ -313,7 +315,7 @@ h4{
 .match .team{
   width: 47%;
   float: left;
-  font-family: Guardian Sans Web, Arial;
+  font-family: Guardian Sans Headline, Arial;
   padding: 4px 0;
 }
 
@@ -323,10 +325,8 @@ h4{
 
 .finalswinner .teamName{
   color: #333;
-  /*font-weight:bold;*/
-  font-family: Guardian Egyptian Bold;
-
-  /*background: #f5d47a;*/
+  font-family: 'Guardian Agate Sans';
+  font-weight:bold;
 }
 
 .teamSeparator0{
@@ -387,9 +387,17 @@ h4{
   visibility: hidden;
 }
 
+.share .reDrawBtn{
+  padding: 6px 8px 5px;
+}
 
-#topBar .reDrawBtn{
-  background: #126191;
+.share .reDrawBtn img{
+  margin-right: 2px;
+}
+
+.reDrawBtn{
+  -webkit-font-smoothing: antialiased;
+  background: #3A84B1;
   border: none;
   color: #fff;
   border-radius: 3px;
@@ -399,102 +407,14 @@ h4{
   font-family: Helvetica, Artial;
   font-weight: bold;
   cursor: pointer;
-  border: 1px solid #265D80;
+  border: 1px solid #246892;
 }
 
-#topBar .reDrawBtn img{
+.reDrawBtn img{
   margin-right: 5px;
   position:relative;
   height: 10px;
   width: 10px;
-}
-
-.tube{
-    width:17px;
-    position:relative;
-    background: rgba(18,97,145,0.2);
-    margin-left: 10px; 
-    margin-top: 50px;
-    padding: 10px 1px 0;
-    float: left;
-    z-index: 10;
-    height: 142px;
-}
-
-.top{
-    width: 19px;
-    height: 10px;
-    background: #5e96b9;
-    margin-top:-15px;
-    margin-left:-1px;
-    margin-bottom:10px;
-    border-radius:50%;
-}
-
-.balls{
-    padding-top:1px;
-    margin-top:-1px;
-
-}
-
-.ball{ 
-    position:relative;
-    width: 17px;
-    background: url(../imgs/ball.png);
-    background-size:17px 17px;
-    height: 17px;
-    -webkit-transition: margin 0.3s ease-in;
-    z-index:1;
-}
-
-.moving{
-    position:absolute;
-    bottom: -60px;
-    -webkit-transition: all 0.4s ease-in;
-}
-
-.bottom{
-    width: 19px;
-    height: 10px;
-    background: #0d3d5a;
-    margin-left:-1px;
-    border-radius:50%;
-    position:absolute;
-    bottom:-5px;
-}
-
-.bottomBg{
-    background: rgba(158,204,232,0.8);
-    width: 19px;
-    height:5px;
-    left:0;
-    bottom: -6px;
-    position: absolute;
-    z-index:-1;
-}
-
-.bottomTube{
-    width:17px;
-    position:absolute;
-    background: rgba(158,204,232,0.8);
-    left:0;
-    padding: 10px 1px 0;
-    float: left;
-    z-index: 10;
-    height: 50px; 
-    bottom: -65px;
-}
-
-.hideBlock{
-    width: 600px;
-    height: 100px;
-    background: #fff;
-    box-shadow: 0 -1px 5px rgba(0,0,0,0.2);
-    float: left;
-    position: relative;
-    z-index: 10;
-    margin-top:50px;
-
 }
 
 
@@ -503,7 +423,6 @@ h4{
 
 
 @media (min-width: 41.25em) {
-
   .primaryImageOfPage{
     margin: 0;
   }
@@ -532,13 +451,6 @@ margin-right: 0;
   margin: -5px 0 40px;
 }
 
-.share img{
-  width: 30px;
-  height: 30px;
-  position: relative;
-  top:9px;
-}
-
   .share .champions img{
   width: 300px;
   height: auto;
@@ -564,6 +476,24 @@ margin-right: 0;
     clear:both;
 }
 
+.champions{
+  height: auto;
+  width: auto;
+  padding-bottom:0;
+}
+
+.images{
+  display:block;
+}
+
+.teamPhoto{
+  display:block;
+}
+
+.teamPhoto2, .teamPhoto3{
+  display: none;
+}
+
 }
   
 
@@ -578,11 +508,36 @@ margin-right: 0;
     float: right;
       }
 
+      .group{
+        width:23.5%;
+        margin-right:2%;
+      }
+
+
+  .group:nth-of-type(2n + 1),.group:nth-of-type(2n){
+  margin-right: 2%;
+  margin-left: 0;
+  }
+
+  .group:nth-of-type(3n + 1){
+  margin-left: 0;
+  }
+
+.group:nth-of-type(3n){
+margin-right: 2%;
+float:left;
+}
+.group:nth-of-type(4n){
+margin-right: 0;
+}
+
     .g-body { width: 1260px; margin: 0 auto; }
     .g-content { width: 620px; }
     .g-col1 { display: block; float: left; width: 220px; padding: 100px 0 0 10px; }
     .g-col2 { display: block; float: right; width: 300px; padding: 100px 10px 0 0; }
 }
+
+
 
 
 

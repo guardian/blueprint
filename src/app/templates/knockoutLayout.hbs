@@ -1,5 +1,34 @@
-<h3 class="finalsTitle">So, who will win the worldcup?</h3>
+
+
+<h3 class="finalsTitle">Who will win the finals?</h3>
 <div class="divider"></div>
+
+<div class="finals roundof16">
+	<div class="title">
+		<h4>Round of 16</h4>
+	</div>
+	<div class="matches">
+		{{#each roundOf16}}
+			<div class="match">
+				{{#each this.teams}}
+					<div class="team finals{{this.winRoundOf16}} team{{@index}}">
+						<img class="countryFlag" src="app/imgs/flags/{{this.flagImage}}"/> 
+						<div class="teamInfo">
+							<div class="teamName">{{this.teamName}}</div>
+							<div class="clearboth"></div>
+							<div class="teamPot">{{this.groupStatus}} - {{this.cont}}</div>
+						</div>
+						<div class="clearboth"></div>
+					</div>
+					<div class="teamSeparator{{@index}}"></div>
+				{{/each}}
+			</div>
+
+		{{/each}}
+		<div class="clearboth"></div>
+	</div>
+</div>
+
 <div class="finals quarterfinals">
 	<div class="title">
 		<h4>Quarter finals</h4>
@@ -13,7 +42,7 @@
 						<div class="teamInfo">
 							<div class="teamName">{{this.teamName}}</div>
 							<div class="clearboth"></div>
-							<div class="teamPot">{{this.groupStatus}} - {{this.cont}}</div>
+							<div class="teamPot">{{this.roundOf16Status}} - {{this.cont}}</div>
 						</div>
 						<div class="clearboth"></div>
 					</div>
@@ -78,7 +107,7 @@
 </div>
 
 
-<div class="share"><p>Did your favourite team win? Share this draw.  </p>
+<div class="share"><p>Did your favourite team win? Share this draw. Or <button class="reDrawBtn"><img src="app/imgs/redrawicon.png" /> draw again</button>  </p>
 <div class="champions">
 	<img src="app/imgs/teams/squads/{{winner.teamPhoto}}"/>
 	<div class="imageOverlay">

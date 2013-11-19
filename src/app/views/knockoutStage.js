@@ -10,6 +10,7 @@ define(['jquery', 'Handlebars', 'text!templates/knockoutLayout.hbs', 'data/sampl
 		
 		
 		var templateConfig = {
+		  roundOf16: content.roundOf16,
 		  quarterFinals: content.quarter,
 		  semiFinals: content.semi,
 		  final: content.final,
@@ -17,7 +18,7 @@ define(['jquery', 'Handlebars', 'text!templates/knockoutLayout.hbs', 'data/sampl
 		  img_path: require.toUrl('imgs/')
 		};
 		
-		console.log(content.winner.teamName);
+		
 		$html.html(template(templateConfig));
 		return $html;
 	}

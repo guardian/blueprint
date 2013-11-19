@@ -3,30 +3,39 @@ define(['jquery', 'Handlebars', 'text!templates/handlebars_example.hbs', 'views/
 
 	var $html = $('<div class="groupStageWrapper">');
 	var template = Handlebars.compile(HandleBarsExample);
-
+	var currentData;
 	
 	function render() {
+		currentData = TeamModel.generateGroups();
 		var templateConfig = {
-		  groups: TeamModel.generateGroups(),
-		  img_path: require.toUrl('imgs/')
-		};
+		  groups: currentData,
+		  teams: currentData.teams
+		};	
+
+		console.log(currentData)
 		
 		// Render template and wrap in jQuery object
 		$html.html(template(templateConfig));
 		$html.find('.knockout_wrapper').html(knockoutStageView.render());
 
-		// round 2
-
-		//render
-
-
-		// round 3 render
-		
-
 		return $html;
 	}
 
+	// function updateWinningTeams(){
+	// 	var templateConfig = {
+	// 	  groups: currentData,
+	// 	  teams: currentData.teamsOrdered
+	// 	};	
+
+	// 	$html.html(template(templateConfig));
+	// 	$html.find('.knockout_wrapper').html(knockoutStageView.render());
+
+	// 	return $html;
+	// }
+	
+
 	return {
-		render: render
+		render: render,
+		// updateWinningTeams: updateWinningTeams
 	}
 });
