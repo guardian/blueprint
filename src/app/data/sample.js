@@ -1,7 +1,7 @@
 // Example of storing data
 define(['jquery'], function($) {
 	var teams = {
-		holland: {teamName: 'Holland',  rank: 8, cont: 'Europe', flagImage: 'NLD.jpg', pot:"2", teamPhoto:"holland.jpg", winning: "" },
+		holland: {teamName: 'Netherlands',  rank: 8, cont: 'Europe', flagImage: 'NLD.jpg', pot:"2", teamPhoto:"holland.jpg", winning: "" },
     	spain: { teamName: 'Spain', rank: 1, cont: 'Europe', flagImage: 'ESP.jpg', pot:"1", teamPhoto:"spain.jpg", winning: "" },
     	italy: {teamName: 'Italy',  rank: 9, cont: 'Europe', flagImage: 'ITA.jpg', pot:"2", teamPhoto:"italy.jpg", winning: "" },
     	ivorycoast: { teamName: "Cote d'Ivoire", rank: 17, cont: 'Africa', flagImage: 'CIV.jpg', pot:"3", teamPhoto:"ivorycoast.jpg", winning: "" },
@@ -16,32 +16,32 @@ define(['jquery'], function($) {
     	australia: {teamName: 'Australia',  rank: 57, cont: 'Oceania', flagImage: 'AUS.jpg', pot:"4", teamPhoto:"australia.jpg", winning: "" },
     	chile: { teamName: 'Chile', rank: 12, cont: 'South America', flagImage: 'CHL.jpg', pot:"3", teamPhoto:"chile.jpg", winning: "" },
     	ghana: {teamName: 'Ghana',  rank: 23, cont: 'Africa', flagImage: 'GHA.jpg', pot:"3", teamPhoto:"ghana.jpg", winning: "" },
-    	costarica: { teamName: 'Costa Rica', rank: 31, cont: 'South America', flagImage: 'CRI.jpg', pot:"4", teamPhoto:"costarica.jpg", winning: "" },
+    	costarica: { teamName: 'Costa Rica', rank: 31, cont: 'North America', flagImage: 'CRI.jpg', pot:"4", teamPhoto:"costarica.jpg", winning: "" },
     	
-    	dummyholland: {teamName: 'Holland u19', rank: 18, cont: 'Europe', flagImage: 'NLD.jpg', pot:"2", teamPhoto:"holland.jpg", winning: "" },
-    	dummyspain: { teamName: 'Spain u19', rank: 5, cont: 'Europe', flagImage: 'ESP.jpg', pot:"1", teamPhoto:"spain.jpg", winning: "" },
-    	dummyitaly: {teamName: 'Italy u19',  rank: 21, cont: 'Europe', flagImage: 'ITA.jpg', pot:"2", teamPhoto:"italy.jpg", winning: "" },
-    	dummyivorycoast: { teamName: "Cote d'Ivoire u19", rank: 6, cont: 'Africa', flagImage: 'CIV.jpg', pot:"3", teamPhoto:"ivorycoast.jpg", winning: "" },
-    	dummyusa: {teamName: 'USA u19',  rank: 23, cont: 'North America', flagImage: 'USA.jpg', pot:"4", teamPhoto:"usa.jpg", winning: "" },
-    	dummyargentina: { teamName: 'Argentina u19', rank: 13, cont: 'South America', flagImage: 'ARG.jpg', pot:"1", teamPhoto:"argentina.jpg", winning: "" },
-    	dummybrazil: {teamName: 'Brazil u19',  rank: 31, cont: 'South America', flagImage: 'BRA.jpg', pot:"1", teamPhoto:"brazil.jpg", winning: "" },
-    	dummyjapan: { teamName: 'Japan u19', rank: 44, cont: 'Asia', flagImage: 'JPN.jpg', pot:"4", teamPhoto:"japan.jpg", winning: "" },
-    	dummygermany: {teamName: 'Germany u19',  rank: 16, cont: 'Europe', flagImage: 'DEU.jpg', pot:"1", teamPhoto:"germany.jpg", winning: "" },
-    	dummyengland: { teamName: 'England u19', rank: 30, cont: 'Europe', flagImage: 'ENG.jpg', pot:"2", teamPhoto:"england.jpg", winning: "" },
-    	dummyrussia: {teamName: 'Russia u19',  rank: 7, cont: 'Europe', flagImage: 'RUS.jpg', pot:"2", teamPhoto:"russia.jpg", winning: "" },
-    	dummyecuador: { teamName: 'Ecuador u19', rank: 18, cont: 'South America', flagImage: 'ECU.jpg', pot:"3", teamPhoto:"ecuador.jpg", winning: "" },
-    	dummyaustralia: {teamName: 'Australia u19',  rank: 47, cont: 'Oceania', flagImage: 'AUS.jpg', pot:"4", teamPhoto:"australia.jpg", winning: "" },
-    	dummychile: { teamName: 'Chile u19', rank: 42, cont: 'South America', flagImage: 'CHL.jpg', pot:"3", teamPhoto:"chile.jpg", winning: "" },
-    	dummyghana: {teamName: 'Ghana u19',  rank: 83, cont: 'Africa', flagImage: 'GHA.jpg', pot:"3", teamPhoto:"ghana.jpg", winning: "" },
-    	dummycostarica: { teamName: 'Costa Rica u19', rank: 27, cont: 'South America', flagImage: 'CRI.jpg', pot:"4", teamPhoto:"costarica.jpg", winning: "" }
+    	algeria: {teamName: 'Algeria', rank: 32, cont: 'Africa', flagImage: 'DZA.jpg', pot:"3", teamPhoto:"holland.jpg", winning: "" },
+    	cameroon: { teamName: 'Cameroon', rank: 59, cont: 'Africa', flagImage: 'CMR.jpg', pot:"3", teamPhoto:"spain.jpg", winning: "" },
+    	nigeria: {teamName: 'Nigeria',  rank: 33, cont: 'Africa', flagImage: 'NGA.jpg', pot:"3", teamPhoto:"italy.jpg", winning: "" },
+    	colombia: { teamName: "Colombia", rank: 4, cont: 'South America', flagImage: 'COL.jpg', pot:"1", teamPhoto:"ivorycoast.jpg", winning: "" },
+    	belgium: {teamName: 'Belgium',  rank: 5, cont: 'Europe', flagImage: 'BEL.jpg', pot:"1", teamPhoto:"usa.jpg", winning: "" },
+    	uruguay: { teamName: 'Uruguay', rank: 6, cont: 'South America', flagImage: 'URY.jpg', pot:"1", teamPhoto:"argentina.jpg", winning: "" },
+    	switzerland: {teamName: 'Switzerland',  rank: 7, cont: 'Europe', flagImage: 'CHE.jpg', pot:"1", teamPhoto:"brazil.jpg", winning: "" },
+    	portugal: { teamName: 'Portugal', rank: 14, cont: 'Europe', flagImage: 'PRT.jpg', pot:"2", teamPhoto:"japan.jpg", winning: "" },
+    	greece: {teamName: 'Greece',  rank: 15, cont: 'Europe', flagImage: 'GRC.jpg', pot:"2", teamPhoto:"germany.jpg", winning: "" },
+    	bosniaherzegovina: { teamName: 'BosniaHerzegovina', rank: 16, cont: 'Europe', flagImage: 'BIH.jpg', pot:"2", teamPhoto:"england.jpg", winning: "" },
+    	croatia: {teamName: 'Croatia',  rank: 18, cont: 'Europe', flagImage: 'HRV.jpg', pot:"2", teamPhoto:"russia.jpg", winning: "" },
+    	france: { teamName: 'France', rank: 21, cont: 'Europe', flagImage: 'FRA.jpg', pot:"3", teamPhoto:"ecuador.jpg", winning: "" },
+    	iran: {teamName: 'Iran',  rank: 49, cont: 'Asia', flagImage: 'IRN.jpg', pot:"4", teamPhoto:"australia.jpg", winning: "" },
+    	korearepublic: { teamName: 'Korea Republic', rank: 56, cont: 'Asia', flagImage: 'KOR.jpg', pot:"4", teamPhoto:"chile.jpg", winning: "" },
+    	mexico: {teamName: 'Mexico',  rank: 24, cont: 'North America', flagImage: 'MEX.jpg', pot:"4", teamPhoto:"ghana.jpg", winning: "" },
+    	honduras: { teamName: 'Honduras', rank: 34, cont: 'North America', flagImage: 'HND.jpg', pot:"4", teamPhoto:"costarica.jpg", winning: "" }
 
 	};
 
 	var pots = {
-		potA : { potName: "A", teams: [teams.brazil, teams.spain, teams.argentina, teams.germany, teams.dummybrazil, teams.dummyspain, teams.dummyargentina, teams.dummygermany]},
-		potB : { potName: "B", teams: [teams.holland, teams.italy, teams.england, teams.russia, teams.dummyholland, teams.dummyitaly, teams.dummyengland, teams.dummyrussia]},
-		potC : { potName: "C", teams: [teams.ivorycoast, teams.ecuador, teams.chile, teams.ghana, teams.dummyivorycoast, teams.dummyecuador, teams.dummychile, teams.dummyghana]},
-		potD : { potName: "D", teams: [teams.usa, teams.japan, teams.australia, teams.costarica, teams.dummyusa, teams.dummyjapan, teams.dummyaustralia, teams.dummycostarica]}
+		potA : { potName: "A", teams: [teams.brazil, teams.spain, teams.germany, teams.argentina,  teams.colombia, teams.belgium, teams.uruguay, teams.switzerland]},
+		potB : { potName: "B", teams: [teams.holland, teams.italy, teams.england, teams.portugal, teams.greece, teams.bosniaherzegovina, teams.croatia, teams.russia]},
+		potC : { potName: "C", teams: [teams.france, teams.chile, teams.ecuador, teams.ivorycoast, teams.ghana, teams.algeria, teams.nigeria, teams.cameroon]},
+		potD : { potName: "D", teams: [teams.japan, teams.iran, teams.korearepublic, teams.australia, teams.usa, teams.mexico, teams.costarica, teams.honduras]}
 	
 		};
 
