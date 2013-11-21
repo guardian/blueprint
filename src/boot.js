@@ -18,6 +18,9 @@ define([], function() {
             basePath: (isDev) ? localPath : remotePath
         };
 
+        // FIXME: Hack baseurl into global as we don't know where the config.js is at this point.
+        document.GI = document.GI || Config;
+
       // Information about Require config: http://requirejs.org/docs/api.html#config-paths
       var cfg = {
         context: 'interactive',

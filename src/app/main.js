@@ -115,7 +115,6 @@ define([
 
   function init(el) {
     $el = $(el);
-
     $headerElm = $(template({ img_path: Config.basePath + 'imgs/' }));
 
     var $drawBtn = $headerElm.find('.newDrawBtn');

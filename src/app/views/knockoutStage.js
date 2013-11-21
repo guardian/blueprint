@@ -9,7 +9,6 @@ define(['jquery', 'handlebars', 'config', 'text!templates/knockoutLayout.hbs', '
 	function render() {
 		var content = TeamModel.getGroups();
 
-        console.log(Config.basePath + 'imgs/');
 		var templateConfig = {
 		  roundOf16: content.roundOf16,
 		  quarterFinals: content.quarter,
