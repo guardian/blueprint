@@ -15,8 +15,8 @@ module.exports = function(grunt) {
 
     s3: {
       options: {
-        debug: true,
-        bucket: 'gdn-stage',
+        debug: false,
+        bucket: 'gdn-cdn',
         access: 'public-read',
         gzip: true,
         gzipExclude: ['.jpg', '.jpeg', '.png', 'gif'],
@@ -29,7 +29,7 @@ module.exports = function(grunt) {
           {
             src: 'src/**/*',
             rel: 'src',
-            dest: 'test/'
+            dest: 'next-gen/sport/ng-interactive/2013/nov/20/1/'
           }
         ]
       }

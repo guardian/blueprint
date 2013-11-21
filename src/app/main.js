@@ -2,36 +2,33 @@ define([
   // Libraries
   'require',
   'jquery',
-  'Handlebars',
+  'handlebars',
 
   // Local files
-  'data/sample',
   'views/drawPicker',
+  'config',
 
   // Load text files (HTML, Handlebars, CSV, SVG)
-  'text!templates/html_layout.html',
+  'text!templates/html_layout.hbs',
   'text!templates/handlebars_example.hbs',
   'text!templates/knockoutLayout.hbs',
   'text!templates/topbar.html'
 ], function(
   require,
   $,
-  Handlebars,
-  SampleData,
+  handlebars,
   drawPicker,
+  Config,
   HTMLTemplate,
   HandleBarsExample,
   knockoutLayout,
   topBarTemplate
 ){
-
+  var Handlebars = handlebars.default;
+  var template = Handlebars.compile(HTMLTemplate);
   var $drawPickerElm;
   var $el;
   var $headerElm;
-  var $reDrawBtnEnd;
-  var status = "full";
-  var z = 0;
-  var y = 0;
   var $showWinnersBtn;
 
   function reDraw() {
@@ -62,7 +59,7 @@ define([
 
     $showWinnersBtn = $el.find('.showWinners');
     var $knockoutWrapper = $el.find('.knockout_wrapper');
-  
+
     $showWinnersBtn.on('click', function(){
       $knockoutWrapper.css('display','block');
       $('.images').css("border", "none");
@@ -82,23 +79,23 @@ define([
         scrollTop: $(".groupStageWrapper").offset().top +5
       }, 1000);
   }
-  
+
 
   function startDrawAnimation() {
     function fadeInTeam(i, y) {
       setTimeout(function () {
         var x = i +1;
         $('.group:eq(' + y +')').find('.teams ul li.unranked .teamInfo .teamPot:contains("Pot ' + x + '")').closest('li').css('opacity','1');
-        y++;  
+        y++;
         if (y < 8) {            //  if the counter < 10, call the loop function
-          fadeInTeam(i, y);             //  ..  again which will trigger another 
-        }  
+          fadeInTeam(i, y);             //  ..  again which will trigger another
+        }
         console.log(i)
         if(x==4 && y ==7){
- 
+
             //$('.currentStatus').fadeOut();
         }
-      }, 150) 
+      }, 150)
     }
 
     for (var i = 0; i < 5; i++) {
@@ -107,19 +104,19 @@ define([
           fadeInTeam(i, 0);
           var allPots = ["Pot 1:</strong> Host (Brazil) and top 7 ranked teams", "Pot 2:</strong> Europe", "Pot 3:</strong> South-America and Africa", "Pot 4:</strong> Asian, North America and Australia", "finished"]
           $('.currentStatus p').html("<strong>Seeding " + allPots[i]);
-          
+
         }, 1200*i);
-        
-      }(i));  
+
+      }(i));
 
     };
   }
-    
+
 
   function init(el) {
     $el = $(el);
-    
-    $headerElm = $(HTMLTemplate);
+
+    $headerElm = $(template({ img_path: Config.basePath + 'imgs/' }));
 
     var $drawBtn = $headerElm.find('.newDrawBtn');
       $drawBtn.on('click', doDrawThing);
@@ -144,14 +141,14 @@ define([
 
     $(document).on("scroll",function(){
       var winnersVisible = $('.knockout_wrapper').css('display');
-      
 
-      
 
-      
-      
+
+
+
+
       var newScroll = $body.scrollTop();
-      if(newScroll >= 750){ 
+      if(newScroll >= 750){
         if(winnersVisible == 'block'){
           console.log('hoi');
           $topBar.css('visibility', 'visible');
@@ -160,9 +157,8 @@ define([
       if(newScroll <= 750 && oldScroll >750){
         $topBar.css('visibility', 'hidden');
       }
-      oldScroll = newScroll; 
+      oldScroll = newScroll;
     });
-
   }
 
 
