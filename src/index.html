@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
-    <style> 
+
+    <style>
 
         /* Simulating next-gen */
         body { margin: 0; padding: 0; }
@@ -11,7 +11,7 @@
         .g-body { width: 100%; }
         .g-content { padding: 0 10px; }
         .g-col1 { display: none; }
-        
+
 
         @media (min-width: 41.25em) {
             .g-content { width: 620px; margin: 0 auto; }
@@ -49,9 +49,17 @@
     </div>
 
     <!-- Simulate loading JS into Guardian page -->
-    <script src="require.js"></script>
+    <!--<script src="require.js"></script>-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/curl/0.7.3/curl-for-jQuery/curl.js"></script>
     <script>
-        require(['boot.js'], function(app) {
+//        require(['boot.js'], function(app) {
+//            var el = document.querySelector('.gu-interactive');
+//            app.boot(el, window, {});
+//        });
+
+        var require = curl;
+
+        require(['boot.js']).then(function(app) {
             var el = document.querySelector('.gu-interactive');
             app.boot(el, window, {});
         });

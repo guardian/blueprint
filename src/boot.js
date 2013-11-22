@@ -9,43 +9,71 @@ define([], function() {
      **/
     boot: function (el, context, config) {
 
+
+        var isDev = true;
+        var localPath = 'app/';
+        var remotePath = 'http://s3.amazonaws.com/gdn-cdn/next-gen/sport/ng-interactive/2013/nov/20/1/app/';
+
+        var Config =  {
+            basePath: (isDev) ? localPath : remotePath
+        };
+
+        // FIXME: Hack baseurl into global as we don't know where the config.js is at this point.
+        document.GI = document.GI || Config;
+
       // Information about Require config: http://requirejs.org/docs/api.html#config-paths
-      var RequireConfig = {
+      var cfg = {
         context: 'interactive',
-        baseUrl: 'app/',
+        baseUrl: Config.basePath,
         paths: {
           'jquery': 'libs/jquery-1.10.2.min',
-          'Handlebars': 'libs/handlebars',
-          'text': '../text'
+          'handlebars': 'libs/handlebars.amd',
+          'text': 'libs/curl/text',
+          'require': '../require',
+          'seedrandom': 'libs/seedrandom'
         },
         shim: {
           Handlebars: {
             exports: 'Handlebars'
-          }
+          },
+          seedrandom: { exports: 'seedrandom'}
         }
       };
 
-      var ReqGI = require.config(RequireConfig);
 
-      ReqGI(['main'], function(Main) {
-        addCSS();
-        Main.init(el);
-      });
+        if ( typeof require() === 'function' ) {
+            // Change requireJS text plugin path
+            cfg.paths.text = 'libs/requirejs/text';
+
+            var req2 = require.config(cfg);
+
+            req2(['main'], function(Main) {
+                addCSS();
+                Main.init(el);
+            });
+
+        } else {
+            // curl, i.e. next-gen
+            require(cfg, ['main']).then(function(Main) {
+              addCSS();
+              Main.init(el);
+            });
+        }
 
       function addCSS() {
-var linkElm2 = document.createElement('link');
+        var linkElm2 = document.createElement('link');
         linkElm2.setAttribute('rel', 'stylesheet');
         linkElm2.setAttribute('type', 'text/css');
-        linkElm2.setAttribute('href', ReqGI.toUrl('css/offline/fonts.css'));
+        linkElm2.setAttribute('href', Config.basePath + 'css/offline/fonts.css');
         document.getElementsByTagName('head')[0].appendChild(linkElm2);
 
         var linkElm = document.createElement('link');
         linkElm.setAttribute('rel', 'stylesheet');
         linkElm.setAttribute('type', 'text/css');
-        linkElm.setAttribute('href', ReqGI.toUrl('css/styles.css'));
+        linkElm.setAttribute('href', Config.basePath + 'css/styles.css');
         document.getElementsByTagName('head')[0].appendChild(linkElm);
 
-        
+
       }
 
     }

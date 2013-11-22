@@ -12,7 +12,7 @@
 			<div class="match">
 				{{#each this.teams}}
 					<div class="team finals{{this.winRoundOf16}} team{{@index}}">
-						<img class="countryFlag" src="app/imgs/flags/{{this.flagImage}}"/> 
+						<img class="countryFlag" src="{{ ../../img_path }}flags/{{this.flagImage}}"/>
 						<div class="teamInfo">
 							<div class="teamName">{{this.teamName}}</div>
 							<div class="clearboth"></div>
@@ -38,7 +38,7 @@
 			<div class="match">
 				{{#each this.teams}}
 					<div class="team finals{{this.winQuarterFinal}} team{{@index}}">
-						<img class="countryFlag" src="app/imgs/flags/{{this.flagImage}}"/> 
+						<img class="countryFlag" src="{{ ../../img_path }}flags/{{this.flagImage}}"/>
 						<div class="teamInfo">
 							<div class="teamName">{{this.teamName}}</div>
 							<div class="clearboth"></div>
@@ -64,7 +64,7 @@
 			<div class="match">
 				{{#each this.teams}}
 				<div class="team finals{{this.winSemiFinal}} team{{@index}}">
-					<img class="countryFlag" src="app/imgs/flags/{{this.flagImage}}"/> 
+					<img class="countryFlag" src="{{ ../../img_path }}flags/{{this.flagImage}}"/>
 					<div class="teamInfo">
 						<div class="teamName">{{this.teamName}}</div>
 						<div class="clearboth"></div>
@@ -89,7 +89,7 @@
 			<div class="match">
 				{{#each this}}
 				<div class="team finals{{this.winFinal}} team{{@index}}">
-					<img class="countryFlag" src="app/imgs/flags/{{this.flagImage}}"/> 
+					<img class="countryFlag" src="{{ ../../img_path }}flags/{{this.flagImage}}"/>
 					<div class="teamInfo">
 						<div class="teamName">{{this.teamName}}</div>
 						<div class="championship{{this.winFinal}}"></div>
@@ -106,11 +106,12 @@
 </div>
 
 
-<div class="share"><p>Did your favourite team win? Share this draw. Or <button class="reDrawBtn"><img src="app/imgs/redrawicon.png" /> draw again</button>  </p>
+<div class="share"><p>Did your favourite team win? Share this draw. Or <button class="reDrawBtn"><img src="{{ img_path }}redrawicon.png" /> draw again</button>  </p>
 <div class="champions">
-	<img src="app/imgs/teams/squads/{{winner.teamPhoto}}"/>
+	<img src="{{ img_path }}teams/squads/{{winner.teamPhoto}}"/>
 	<div class="imageOverlay">
 		<div class="shareButtons">
+            <a href="example.com?seed={{ seed }}">Twitter link</a>
 			<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="-2 -2 36 36" enable-background="new -2 -2 36 36">
 				<g fill="#fff">
 					<path d="M16.059 33.499c-9.65 0-17.5-7.85-17.5-17.499s7.851-17.5 17.5-17.5c9.649 0 17.5 7.851 17.5 17.5s-7.851 17.499-17.5 17.499zm0-33.999c-9.099 0-16.5 7.402-16.5 16.5 0 9.098 7.402 16.499 16.5 16.499 9.098 0 16.5-7.401 16.5-16.499 0-9.098-7.402-16.5-16.5-16.5z"/>

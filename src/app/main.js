@@ -2,44 +2,41 @@ define([
   // Libraries
   'require',
   'jquery',
-  'Handlebars',
+  'handlebars',
 
   // Local files
-  'data/sample',
   'views/drawPicker',
+  'config',
+  'data/sample',
 
   // Load text files (HTML, Handlebars, CSV, SVG)
-  'text!templates/html_layout.html',
+  'text!templates/html_layout.hbs',
   'text!templates/handlebars_example.hbs',
   'text!templates/knockoutLayout.hbs',
   'text!templates/topbar.html'
 ], function(
   require,
   $,
-  Handlebars,
-  SampleData,
+  handlebars,
   drawPicker,
+  Config,
+  Data,
   HTMLTemplate,
   HandleBarsExample,
   knockoutLayout,
   topBarTemplate
 ){
-
+  var Handlebars = handlebars.default;
+  var template = Handlebars.compile(HTMLTemplate);
   var $drawPickerElm;
   var $el;
   var $headerElm;
-  var $reDrawBtnEnd;
-  var status = "full";
-  var z = 0;
-  var y = 0;
   var $showWinnersBtn;
   var winnersVisible = false;
 
   function reDraw() {
-    
-    
+    Data.generateNewSeed();
     if(winnersVisible == false){
-     
       $('.images img').css("opacity", "1");
       $('.currentStatus').css("display", "none");
     }else{
@@ -62,9 +59,6 @@ define([
       // }
     }
 
-    
-
-    
    }
 
   function doDrawThing() {
@@ -82,7 +76,7 @@ define([
 
     $showWinnersBtn = $el.find('.showWinners');
     var $knockoutWrapper = $el.find('.knockout_wrapper');
-  
+
     $showWinnersBtn.on('click', function(){
       $knockoutWrapper.css('display','block');
       $('.images').css("border", "none");
@@ -104,7 +98,7 @@ define([
         scrollTop: $(".groupStageWrapper").offset().top +20
       }, 1000);
   }
-  
+
 
   function startDrawAnimation(speed2) {
     var speed = speed2;
@@ -113,14 +107,16 @@ define([
       setTimeout(function () {
         var x = i +1;
         $('.group:eq(' + y +')').find('.teams ul li.unranked .teamInfo .teamPot:contains("Pot ' + x + '")').closest('li').css('opacity','1');
-        y++;  
+        y++;
         if (y < 8) {            //  if the counter < 10, call the loop function
           fadeInTeam(i, y);             //  ..  again which will trigger another 
         }  
+
         if(x==4 && y ==7){
- 
+
             //$('.currentStatus').fadeOut();
         }
+
       }, speed) 
     }
 
@@ -130,6 +126,7 @@ define([
           fadeInTeam(i, 0);
           var allPots = ["Pot 1:</strong> Host (Brazil) and top 7 ranked teams", "Pot 2:</strong> Europe", "Pot 3:</strong> South-America and Africa", "Pot 4:</strong> Asian, North America and Australia", "finished"]
           $('.currentStatus p').html("<strong>Seeding " + allPots[i]);
+
           if(i===4){
           $('.currentStatus').css('display','none');
         }
@@ -138,22 +135,34 @@ define([
         
       }(i));  
 
+
     };
   }
-    
+
 
   function init(el) {
     $el = $(el);
-    
-    $headerElm = $(HTMLTemplate);
+    $headerElm = $(template({ img_path: Config.basePath + 'imgs/' }));
 
     var $drawBtn = $headerElm.find('.newDrawBtn');
+
     $drawBtn.on('click', doDrawThing);
     $drawBtn.on('click', scrollToGroupStage);
     $drawBtn.on('click', function(){
       startDrawAnimation(150);
     });
 
+
+
+    function startDraw(event) {
+        if (event) {
+            Data.generateNewSeed();
+        }
+
+        doDrawThing();
+        scrollToGroupStage();
+        startDrawAnimation();
+    }
 
     $el.append($headerElm);
 
@@ -174,25 +183,37 @@ define([
     });
 
     $(document).on("scroll",function(){
-      
+
       var winnersVisible = $('.knockout_wrapper').css('display');
     
       
 
-      
-      
+
+
+
+
+
       var newScroll = $body.scrollTop();
+
       if(newScroll >= 750){ 
         // if(winnersVisible == 'block'){
+
           $topBar.css('visibility', 'visible');
         // }
       }
       if(newScroll <= 750 && oldScroll >750){
         $topBar.css('visibility', 'hidden');
       }
-      oldScroll = newScroll; 
+      oldScroll = newScroll;
     });
+      console.log(Data.getURLSeed());
 
+
+      // Check if URL has seed and show result if it does.
+      if (Data.getURLSeed()) {
+          console.log('sd');
+          startDraw();
+      }
   }
 
 

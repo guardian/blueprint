@@ -15,8 +15,7 @@ module.exports = function(grunt) {
 
     s3: {
       options: {
-        debug: false,
-        bucket: 'gdn-stage',
+        bucket: 'gdn-cdn',
         access: 'public-read',
         gzip: true,
         gzipExclude: ['.jpg', '.jpeg', '.png', '.gif'],
@@ -24,14 +23,26 @@ module.exports = function(grunt) {
           'Cache-Control': 'max-age=10, public'
         }
       },
-      src: {
+
+      prod: {
         upload: [
           {
             src: 'src/**/*',
             rel: 'src',
-            dest: 'world-cup-draw-2013/'
+            dest: 'next-gen/sport/ng-interactive/2013/nov/20/1/'
           }
         ]
+      },
+
+      dev: {
+          options: {
+              debug: true
+          },
+          upload: [{
+              src: 'src/**/*',
+              rel: 'src',
+              dest: 'next-gen/sport/ng-interactive/2013/nov/20/1/'
+          }]
       }
     }
 
@@ -41,5 +52,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-s3');
 
   grunt.registerTask('default', ['connect']);
-  grunt.registerTask('deploy', ['s3']);
+  grunt.registerTask('deploy', ['s3:prod']);
+  grunt.registerTask('test-deploy', ['s3:dev']);
+
 };

@@ -9,9 +9,9 @@
 		<h4>{{this.groupName}}</h4>
 		<div class="images">
 			{{#each teamsOrdered}}
-				
-				<img data-src="app/imgs/teams/squads/{{this.teamPhoto}}" class="teamPhoto teamPhoto{{@index}}"/>
-				
+
+				<img src="{{ ../../img_path }}teams/squads/{{this.teamPhoto}}" class="teamPhoto teamPhoto{{@index}}"/>
+
 			{{/each}}
 			<div class="clearboth"></div>
 		</div>
@@ -19,7 +19,7 @@
 			<ul>
 			{{#each teamsOrdered}}
 				<li class="ranked">
-					<img class="countryFlag" src="app/imgs/flags/{{this.flagImage}}"/> 
+					<img class="countryFlag" src="{{ ../../img_path }}flags/{{this.flagImage}}"/>
 					<div class="teamInfo">
 						<div class="teamName">{{this.teamName}}</div>
 						<div class="{{this.winner}}"></div>
@@ -31,7 +31,7 @@
 			{{/each}}
 			{{#each teams}}
 				<li class="unranked">
-					<img class="countryFlag" src="app/imgs/flags/{{this.flagImage}}"/> 
+					<img class="countryFlag" src="{{ ../../img_path }}flags/{{this.flagImage}}"/>
 					<div class="teamInfo">
 						<div class="teamName">{{this.teamName}}</div>
 						<div class="{{this.winner}}"></div>
