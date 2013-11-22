@@ -10,7 +10,7 @@
 		<div class="images">
 			{{#each teamsOrdered}}
 				
-				<img src="app/imgs/teams/squads/{{this.teamPhoto}}" class="teamPhoto teamPhoto{{@index}}"/>
+				<img data-src="app/imgs/teams/squads/{{this.teamPhoto}}" class="teamPhoto teamPhoto{{@index}}"/>
 				
 			{{/each}}
 			<div class="clearboth"></div>
@@ -24,7 +24,7 @@
 						<div class="teamName">{{this.teamName}}</div>
 						<div class="{{this.winner}}"></div>
 						<div class="clearboth"></div>
-						<div class="teamPot">Pot {{this.pot}} - {{this.cont}}</div>
+						<div class="teamPot">Pot {{this.pot}} ({{this.cont}}) – Rank {{this.rank}}</div>
 					</div>
 					<div class="clearboth"></div>
 				</li>
@@ -36,7 +36,7 @@
 						<div class="teamName">{{this.teamName}}</div>
 						<div class="{{this.winner}}"></div>
 						<div class="clearboth"></div>
-						<div class="teamPot">Pot {{this.pot}} - {{this.cont}}</div>
+						<div class="teamPot">Pot {{this.pot}} ({{this.cont}}) – Rank {{this.rank}}</div>
 					</div>
 					<div class="clearboth"></div>
 				</li>
@@ -50,5 +50,6 @@
 </div>
 
 <button class="newDrawBtn showWinners">Show me who will win</button>
+<p class="disclaimerWinners">* winners based on FIFA ranking and percentage of upset/random calculation</p>
 <div class="knockout_wrapper"></div>
 

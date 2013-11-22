@@ -98,7 +98,7 @@ h3{
 }
 .groupStage{
   margin-top: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .currentStatus{
@@ -130,15 +130,15 @@ h3{
 
 .group{
   min-width: 145px;
-  width: 48%;
-  margin: 0 1.5% 20px;
+  width: 49%;
+  margin: 0 2% 20px 0;
   float: left;
 }
 .images{
   height: 0;
   padding-bottom:33%;
   position: relative;
-  background:#eee;
+  background:#fcfcfc;
   display:none;
 }
 
@@ -148,9 +148,6 @@ h3{
 }
 
 
-.group:nth-of-type(2n + 1){
-  margin-left: 0;
-}
 
 .group:nth-of-type(2n){
   margin-right: 0;
@@ -186,13 +183,12 @@ h4{
   border-top: 1px solid #ececec;
   padding: 4px 0;
   opacity:0;
-  -webkit-transition: opacity 0.1s linear;
+  -webkit-transition: opacity 0.2s linear;
   font-weight: normal;
 }
 .teams ul li.ranked{
   display:none;
   opacity:0;
-  -webkit-transition:1s opacity linear;
 }
 
 .teams ul li:nth-of-type(1){
@@ -208,7 +204,7 @@ h4{
 }
 
 .countryFlag{
-  width: 14px;
+  width: 12px;
   height: 12px;
   margin: 4px 5px 0;
   float: left;
@@ -268,9 +264,14 @@ h4{
 }
 
 .showWinners{
-  margin-bottom:80px;
+  margin-bottom:10px;
+  margin-top:0;
 }
 
+.disclaimerWinners{
+  margin: 0 auto 50px;
+  text-align: center;
+}
 
 .knockout_wrapper{
   margin-top: 40px;
@@ -290,7 +291,7 @@ h4{
 
 .title{
 
-  border-bottom: 2px solid #ccc;
+  border-bottom: 2px solid #ececec;
   padding: 10px 0 0;
   margin: 20px 0 0;
 }
@@ -310,6 +311,10 @@ h4{
   width: 100%;
   border-bottom: 1px solid #ccc;
 
+}
+
+.final .match .team {
+  padding: 4px 0 6px;
 }
 
 .match .team{
@@ -376,24 +381,19 @@ h4{
 
 
 #topBar{
-  height:48px;
+  height:36px;
   width: 100%;
   background: rgba(255,255,255,0.8);
   margin: 0 -10px;
   position: fixed;
   top:0;
-  text-align:center;
   z-index:5;
   visibility: hidden;
 }
 
-.share .reDrawBtn{
-  padding: 6px 8px 5px;
-}
 
-.share .reDrawBtn img{
-  margin-right: 2px;
-}
+
+
 
 .reDrawBtn{
   -webkit-font-smoothing: antialiased;
@@ -401,9 +401,9 @@ h4{
   border: none;
   color: #fff;
   border-radius: 3px;
-  padding: 11px 14px 10px;
-  margin-top:5px;
-  font-size: 13px;
+  padding: 8px 8px 7px;
+  margin-top:4px;
+  font-size: 12px;
   font-family: Helvetica, Artial;
   font-weight: bold;
   cursor: pointer;
@@ -417,9 +417,22 @@ h4{
   width: 10px;
 }
 
+#topBar .reDrawBtn{
+  left:0;
+  right:0;
+  margin:3px auto;
+  position:absolute;
+  width:80px;
+}
 
+.share .reDrawBtn{
+  -webkit-font-smoothing: antialiased;
+  padding: 8px 8px 7px;
+}
 
-
+.share .reDrawBtn img{
+  margin-right: 2px;
+}
 
 
 @media (min-width: 41.25em) {
@@ -427,24 +440,20 @@ h4{
     margin: 0;
   }
   h2{font-size: 3rem;}
-  h3{font-size:2rem;}
+  h3{font-size:1.8rem;}
   
   .group{
   width: 32%;
-  margin: 0 1% 20px;
+  margin: 0 2% 20px 0;
   }
 
   .group:nth-of-type(2n + 1),.group:nth-of-type(2n){
-  margin:0 1% 20px;
+  margin:0 2% 20px 0;
   }
 
-  .group:nth-of-type(3n + 1){
-  margin-left: 0;
+  .group:nth-of-type(3n){
+  margin-right: 0;
   }
-
-.group:nth-of-type(3n){
-margin-right: 0;
-}
 
 .share{
   text-align: center;

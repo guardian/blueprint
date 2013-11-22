@@ -15,11 +15,11 @@ module.exports = function(grunt) {
 
     s3: {
       options: {
-        debug: true,
+        debug: false,
         bucket: 'gdn-stage',
         access: 'public-read',
         gzip: true,
-        gzipExclude: ['.jpg', '.jpeg', '.png', 'gif'],
+        gzipExclude: ['.jpg', '.jpeg', '.png', '.gif'],
         headers: {
           'Cache-Control': 'max-age=10, public'
         }
@@ -29,7 +29,7 @@ module.exports = function(grunt) {
           {
             src: 'src/**/*',
             rel: 'src',
-            dest: 'test/'
+            dest: 'world-cup-draw-2013/'
           }
         ]
       }
