@@ -10,7 +10,7 @@ define([], function() {
     boot: function (el, context, config) {
 
 
-        var isDev = false;
+        var isDev = true;
         var localPath = 'app/';
         var remotePath = 'http://s3.amazonaws.com/gdn-cdn/next-gen/sport/ng-interactive/2013/nov/20/1/app/';
 
@@ -29,12 +29,14 @@ define([], function() {
           'jquery': 'libs/jquery-1.10.2.min',
           'handlebars': 'libs/handlebars.amd',
           'text': 'libs/curl/text',
-          'require': '../require'
+          'require': '../require',
+          'seedrandom': 'libs/seedrandom'
         },
         shim: {
           Handlebars: {
             exports: 'Handlebars'
-          }
+          },
+          seedrandom: { exports: 'seedrandom'}
         }
       };
 

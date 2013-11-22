@@ -15,8 +15,11 @@ define(['jquery', 'handlebars', 'config', 'text!templates/knockoutLayout.hbs', '
 		  semiFinals: content.semi,
 		  final: content.final,
 		  winner: content.winner,
-		  img_path: Config.basePath + 'imgs/'
+		  img_path: Config.basePath + 'imgs/',
+          seed: TeamModel.getSeed()
 		};
+
+        console.log('re render');
 
 
 		$html.html(template(templateConfig));

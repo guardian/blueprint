@@ -7,6 +7,7 @@ define([
   // Local files
   'views/drawPicker',
   'config',
+  'data/sample',
 
   // Load text files (HTML, Handlebars, CSV, SVG)
   'text!templates/html_layout.hbs',
@@ -19,6 +20,7 @@ define([
   handlebars,
   drawPicker,
   Config,
+  Data,
   HTMLTemplate,
   HandleBarsExample,
   knockoutLayout,
@@ -32,6 +34,7 @@ define([
   var $showWinnersBtn;
 
   function reDraw() {
+    Data.generateNewSeed();
     $('.group .teams ul li').css("opacity","1");
     $('.images p').remove();
     $('.images img').css("opacity", "1");
@@ -118,10 +121,18 @@ define([
     $headerElm = $(template({ img_path: Config.basePath + 'imgs/' }));
 
     var $drawBtn = $headerElm.find('.newDrawBtn');
-      $drawBtn.on('click', doDrawThing);
-      $drawBtn.on('click', scrollToGroupStage);
-      $drawBtn.on('click', startDrawAnimation);
+    $drawBtn.on('click', startDraw);
 
+
+    function startDraw(event) {
+        if (event) {
+            Data.generateNewSeed();
+        }
+
+        doDrawThing();
+        scrollToGroupStage();
+        startDrawAnimation();
+    }
 
     $el.append($headerElm);
 
@@ -158,6 +169,14 @@ define([
       }
       oldScroll = newScroll;
     });
+      console.log(Data.getURLSeed());
+
+
+      // Check if URL has seed and show result if it does.
+      if (Data.getURLSeed()) {
+          console.log('sd');
+          startDraw();
+      }
   }
 
 

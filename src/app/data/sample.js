@@ -1,5 +1,5 @@
 // Example of storing data
-define(['jquery'], function($) {
+define(['jquery', 'seedrandom'], function($) {
 	var teams = {
 		holland: {teamName: 'Netherlands',  rank: 8, cont: 'Europe', flagImage: 'NLD.jpg', pot:"2", teamPhoto:"holland.jpg", winning: "" },
     	spain: { teamName: 'Spain', rank: 1, cont: 'Europe', flagImage: 'ESP.jpg', pot:"1", teamPhoto:"spain.jpg", winning: "" },
@@ -17,7 +17,7 @@ define(['jquery'], function($) {
     	chile: { teamName: 'Chile', rank: 12, cont: 'South America', flagImage: 'CHL.jpg', pot:"3", teamPhoto:"chile.jpg", winning: "" },
     	ghana: {teamName: 'Ghana',  rank: 23, cont: 'Africa', flagImage: 'GHA.jpg', pot:"3", teamPhoto:"ghana.jpg", winning: "" },
     	costarica: { teamName: 'Costa Rica', rank: 31, cont: 'North America', flagImage: 'CRI.jpg', pot:"4", teamPhoto:"costarica.jpg", winning: "" },
-    	
+
     	algeria: {teamName: 'Algeria', rank: 32, cont: 'Africa', flagImage: 'DZA.jpg', pot:"3", teamPhoto:"holland.jpg", winning: "" },
     	cameroon: { teamName: 'Cameroon', rank: 59, cont: 'Africa', flagImage: 'CMR.jpg', pot:"3", teamPhoto:"spain.jpg", winning: "" },
     	nigeria: {teamName: 'Nigeria',  rank: 33, cont: 'Africa', flagImage: 'NGA.jpg', pot:"3", teamPhoto:"italy.jpg", winning: "" },
@@ -42,8 +42,8 @@ define(['jquery'], function($) {
 		potB : { potName: "B", teams: [teams.holland, teams.italy, teams.england, teams.portugal, teams.greece, teams.bosniaherzegovina, teams.croatia, teams.russia]},
 		potC : { potName: "C", teams: [teams.france, teams.chile, teams.ecuador, teams.ivorycoast, teams.ghana, teams.algeria, teams.nigeria, teams.cameroon]},
 		potD : { potName: "D", teams: [teams.japan, teams.iran, teams.korearepublic, teams.australia, teams.usa, teams.mexico, teams.costarica, teams.honduras]}
-	
-		};
+
+    };
 
 	var groups = {
 		groupA: { groupName: 'Group A', teams: []},
@@ -55,19 +55,15 @@ define(['jquery'], function($) {
 		groupG: { groupName: 'Group G', teams: []},
 		groupH: { groupName: 'Group H', teams: []}
 	};
-	
+
 
 	var groupKeys = ['groupA', 'groupB', 'groupC','groupD', 'groupE', 'groupF', 'groupG', 'groupH'];
 	var teamImages;
-	
 
-	function getRandomNumber(){
-	 	var randomGroupNumber = Math.floor(Math.random()*8);
-	 	return randomGroupNumber;
- 	}
+
 
  	function assignToGroup(team, randomGroupPot, currentPot){
- 		var randomNumber = getRandomNumber();
+ 		var randomNumber = Math.floor(Math.random() * 8);
  		var a = randomGroupPot.indexOf(randomNumber);
 
  		//Make sure Brazil is always in group A
@@ -75,17 +71,41 @@ define(['jquery'], function($) {
  			var currentGroup = groups[groupKeys[0]].teams;
  			currentGroup.push(team);
  			randomGroupPot.push(0);
- 		}else{
- 			if(a == -1){
-	 			var currentGroup = groups[groupKeys[randomNumber]].teams;
-	 			currentGroup.push(team);
-	 			randomGroupPot.push(randomNumber);
- 				//Push number in array to check which groups are filled
- 			
- 			} else if(a > -1){
- 			assignToGroup(team, randomGroupPot, currentPot);
- 			}
- 		}	
+            return;
+ 		}
+
+        // Already used that pot, try again
+        if (a > -1){
+            return assignToGroup(team, randomGroupPot, currentPot);
+        }
+
+        var currentGroup = groups[groupKeys[randomNumber]].teams;
+
+
+        // Only one continent allowed per group (except EU which is allowed two)
+        var EUTeams = currentGroup.filter(function(groupTeam) {
+            return groupTeam.cont === 'Europe';
+        });
+        if (team.cont === 'Europe' && EUTeams.length === 2) {
+            return assignToGroup(team, randomGroupPot, currentPot);
+        }
+
+        // Only one continent allowed per group (except EU which is allowed two)
+        var hasSameContinent = currentGroup.some(function(groupTeam) {
+            if (groupTeam.cont === 'Europe')
+                return false;
+            return (groupTeam.cont === team.cont);
+        });
+        if (hasSameContinent) {
+            console.log('same continent. Pick again');
+            return assignToGroup(team, randomGroupPot, currentPot);
+        }
+
+        if(a == -1){
+            currentGroup.push(team);
+            randomGroupPot.push(randomNumber);
+            //Push number in array to check which groups are filled
+        }
  	}
 
  	function rankGroups(newGroups){
@@ -97,7 +117,7 @@ define(['jquery'], function($) {
  			team.quarterFinalStatus = "";
  			team.semiFinalStatus = "";
  		});
- 
+
  		$.each(newGroups, function(index, group ) {
  			var randomUpset = Math.random();
  			 if(randomUpset <= 0.1875){
@@ -107,21 +127,56 @@ define(['jquery'], function($) {
 				orderedGroup[1].winner = "winner";
 				orderedGroup[1].groupStatus = "Second of " + group.groupName;
 				group.teamsOrdered = orderedGroup;
-			}else{
+			} else {
 				var orderedGroup = group.teams.slice().sort(function(a,b){ return a.rank-b.rank });
 				orderedGroup[0].winner = "winner";
 				orderedGroup[0].groupStatus = "Winner of " + group.groupName;
 				orderedGroup[1].winner = "winner";
 				orderedGroup[1].groupStatus = "Second of " + group.groupName;
-				group.teamsOrdered = orderedGroup; 	
-				
+				group.teamsOrdered = orderedGroup;
+
 			}
  		});
- 		
+
  		return groups;
  	}
 
+    // Stackoverflow solution http://stackoverflow.com/a/901144
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+
+    // Thanks to Stackoverflow answer http://stackoverflow.com/a/1349426
+    function makeid() {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        for( var i=0; i < 6; i++ )
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+        return text;
+    }
+
+    function getURLSeed() {
+        return getParameterByName('seed');
+    }
+
+    var seed = getURLSeed();
+
+    function generateNewSeed() {
+        seed = makeid();
+        console.log('Generating new seed. +++++++++++++');
+    }
+
+    function getSeed() {
+        return seed;
+    }
+
 	function generateGroups() {
+        Math.seedrandom(seed);
 		// Empty group team array
 		$.each(groups, function(i, group) {
 			group.teams = [];
@@ -131,14 +186,14 @@ define(['jquery'], function($) {
 			var randomGroupPot = [];
 			$.each(pot.teams, function(j, team) {
 	 	 		assignToGroup(team, randomGroupPot, i);
-		 	});	
+		 	});
 		});
 
-		
+
 		//var orderedGroups = rankGroups(groups);
 		var rankedGroups = rankGroups(groups);
 
-		
+
 		return rankedGroups;
 	}
 
@@ -201,7 +256,7 @@ define(['jquery'], function($) {
 			var chanceToWin = calculateChanceToWin(differenceRank)
 			console.log(differenceRank,chanceToWin);
 			//var chanceToWin = 50 + differenceRank*1.3; //Chance that team 2 wins
-			
+
 			var randomNumber = Math.random()*100;
 			//Team 2 loses, team 1 wins and will be pushed in semifinals
 			if(randomNumber >= chanceToWin){
@@ -251,7 +306,7 @@ define(['jquery'], function($) {
 			var chanceToWin = calculateChanceToWin(differenceRank)
 			console.log(differenceRank,chanceToWin);
 			//var chanceToWin = 50 + differenceRank*1.3; //Chance that team 2 wins
-			
+
 			var randomNumber = Math.random()*100;
 			//Team 2 loses, team 1 wins and will be pushed in semifinals
 			if(randomNumber >= chanceToWin){
@@ -282,7 +337,7 @@ define(['jquery'], function($) {
 		$.each(semiFinals, function(index, semiFinal) {
 			var differenceRank = semiFinal.teams[0].rank - semiFinal.teams[1].rank;
 			var chanceToWin = calculateChanceToWin(differenceRank);
-			
+
 			var randomNumber = Math.random()*100;
 
 			if(randomNumber >= chanceToWin){
@@ -330,7 +385,10 @@ define(['jquery'], function($) {
 
 	return {
 		generateGroups: generateGroups,
-		getGroups: getGroups
+		getGroups: getGroups,
+        getURLSeed: getURLSeed,
+        generateNewSeed: generateNewSeed,
+        getSeed: getSeed
 	}
 
 });
