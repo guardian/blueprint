@@ -5,6 +5,29 @@ define(['jquery', 'handlebars', 'config', 'text!templates/knockoutLayout.hbs', '
 	var $html = $('<div>');
 	var template = Handlebars.compile(KnockoutTemplate);
 
+    function updateSocialLinks() {
+        $('.tweet_share', 'body').attr('href', generateTwitterLink());
+        $('.facebook_share').attr('href', generateFacebookLink());
+    }
+
+    function generateFacebookLink() {
+        var directURI = encodeURIComponent('http://www.gu.com/XXXXXXXXXXX');
+        var link = encodeURIComponent('http://www.gu.com/XXXXXXXXXXX&seed=' + TeamModel.getSeed());
+        var fbURL = 'https://www.facebook.com/dialog/feed?app_id=180444840287';
+        fbURL += '&redirect_uri=' + directURI;
+        fbURL += '&link=' + link;
+        return fbURL;
+    }
+
+    function generateTwitterLink() {
+        var text = encodeURIComponent('Some text goes here');
+        var link = encodeURIComponent('http://www.gu.com/XXXXXXXXXXX&seed=' + TeamModel.getSeed());
+        var twitterLink = 'https://twitter.com/intent/tweet';
+        twitterLink += '?text=' + text;
+        twitterLink += '&url=' + link;
+        return twitterLink
+    }
+
 
 	function render() {
 		var content = TeamModel.getGroups();
@@ -19,14 +42,12 @@ define(['jquery', 'handlebars', 'config', 'text!templates/knockoutLayout.hbs', '
           seed: TeamModel.getSeed()
 		};
 
-        console.log('re render');
-
-
 		$html.html(template(templateConfig));
 		return $html;
 	}
 
 	return {
-		render: render
+		render: render,
+        updateSocialLinks: updateSocialLinks
 	}
 });

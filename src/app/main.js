@@ -6,6 +6,7 @@ define([
 
   // Local files
   'views/drawPicker',
+  'views/knockoutStage',
   'config',
   'data/sample',
 
@@ -19,6 +20,7 @@ define([
   $,
   handlebars,
   drawPicker,
+  knockoutStageView,
   Config,
   Data,
   HTMLTemplate,
@@ -89,6 +91,8 @@ define([
       $showWinnersBtn.remove();
       winnersVisible = true;
     });
+
+    knockoutStageView.updateSocialLinks()
   }
 
 
@@ -109,15 +113,15 @@ define([
         $('.group:eq(' + y +')').find('.teams ul li.unranked .teamInfo .teamPot:contains("Pot ' + x + '")').closest('li').css('opacity','1');
         y++;
         if (y < 8) {            //  if the counter < 10, call the loop function
-          fadeInTeam(i, y);             //  ..  again which will trigger another 
-        }  
+          fadeInTeam(i, y);             //  ..  again which will trigger another
+        }
 
         if(x==4 && y ==7){
 
             //$('.currentStatus').fadeOut();
         }
 
-      }, speed) 
+      }, speed)
     }
 
     for (var i = 0; i < 5; i++) {
@@ -130,10 +134,10 @@ define([
           if(i===4){
           $('.currentStatus').css('display','none');
         }
-          
+
         }, (speed*8)*i);
-        
-      }(i));  
+
+      }(i));
 
 
     };
@@ -146,11 +150,7 @@ define([
 
     var $drawBtn = $headerElm.find('.newDrawBtn');
 
-    $drawBtn.on('click', doDrawThing);
-    $drawBtn.on('click', scrollToGroupStage);
-    $drawBtn.on('click', function(){
-      startDrawAnimation(150);
-    });
+    $drawBtn.on('click', startDraw);
 
 
 
@@ -161,7 +161,7 @@ define([
 
         doDrawThing();
         scrollToGroupStage();
-        startDrawAnimation();
+        startDrawAnimation(150);
     }
 
     $el.append($headerElm);
@@ -185,8 +185,8 @@ define([
     $(document).on("scroll",function(){
 
       var winnersVisible = $('.knockout_wrapper').css('display');
-    
-      
+
+
 
 
 
@@ -195,7 +195,7 @@ define([
 
       var newScroll = $body.scrollTop();
 
-      if(newScroll >= 750){ 
+      if(newScroll >= 750){
         // if(winnersVisible == 'block'){
 
           $topBar.css('visibility', 'visible');

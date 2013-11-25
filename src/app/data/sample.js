@@ -167,7 +167,6 @@ define(['jquery', 'seedrandom'], function($) {
 
     function generateNewSeed() {
         seed = makeid();
-        console.log('Generating new seed. +++++++++++++');
     }
 
     function getSeed() {
@@ -302,7 +301,7 @@ define(['jquery', 'seedrandom'], function($) {
 			var differenceRank = quarterFinal.teams[0].rank - quarterFinal.teams[1].rank;
 
 			var chanceToWin = calculateChanceToWin(differenceRank)
-			
+
 			//var chanceToWin = 50 + differenceRank*1.3; //Chance that team 2 wins
 
 			var randomNumber = Math.random()*100;
