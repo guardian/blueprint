@@ -10,12 +10,12 @@ define([], function() {
     boot: function (el, context, config) {
 
 
-        var isDev = true;
+        var isProd = /gucode\.gnl|gu\.com|theguardian\.com|guardian\.co\.uk/.test(document.location.host);
         var localPath = 'app/';
         var remotePath = 'http://s3.amazonaws.com/gdn-cdn/next-gen/sport/ng-interactive/2013/nov/20/1/app/';
 
         var Config =  {
-            basePath: (isDev) ? localPath : remotePath
+            basePath: (isProd) ?  remotePath : localPath
         };
 
         // FIXME: Hack baseurl into global as we don't know where the config.js is at this point.
