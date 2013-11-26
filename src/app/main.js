@@ -104,8 +104,7 @@ define([
   }
 
 
-  function startDrawAnimation(speed2) {
-    var speed = speed2;
+  function startDrawAnimation(speed) {
     function fadeInTeam(i, y) {
       setTimeout(function () {
         var x = i +1;
@@ -113,13 +112,7 @@ define([
         y++;
         if (y < 8) {            //  if the counter < 10, call the loop function
           fadeInTeam(i, y);             //  ..  again which will trigger another
-        }
-
-        if(x==4 && y ==7){
-
-            //$('.currentStatus').fadeOut();
-        }
-
+        } 
       }, speed)
     }
 

@@ -19,29 +19,29 @@ html{
   padding: 0;
   -webkit-font-smoothing: antialiased;
 }
-.primaryImageOfPage{
+.gu-interactive .primaryImageOfPage{
       padding: 0;
       margin: 0 -10px;
     }
 
-.mainImage{
+.gu-interactive .mainImage{
   width:100%;
 }
 
-.divider{
+.gu-interactive .divider{
   border-top: 1px dotted #e3e3db;
   margin: 22px auto 22px;
   width: 100px;
 }
 
-h2{
+.gu-interactive h2{
   font-family: 'Guardian Egyptian Headline', Arial, Georgia, serif;
   font-size: 2.4rem;
   text-align: center;
   font-weight: 600;
 }
 
-h3{ 
+.gu-interactive h3{ 
 
   font-size: 1.6rem;
   line-height: 2.6rem;
@@ -50,7 +50,7 @@ h3{
 
 }
 
-.newDrawBtn{
+.gu-interactive .newDrawBtn{
   -webkit-font-smoothing: antialiased;
   padding: 20px 28px 18px;
   margin: 20px auto 0;
@@ -66,7 +66,7 @@ h3{
   margin-bottom:30px;
 }
 
-.moreInformation{
+.gu-interactive .moreInformation{
   margin-top:30px;
   margin-bottom:20px;
   cursor: pointer;
@@ -74,11 +74,11 @@ h3{
   -webkit-transition: 0.2s all linear;
 }
 
-.moreInformation p.invisible{
+.gu-interactive .moreInformation p.invisible{
   display:block;
 }
 
-.moreInformation h4{
+.gu-interactive .moreInformation h4{
   text-align: center;
   font-family: Arial;
   font-size:12px;
@@ -86,22 +86,22 @@ h3{
   border:none;
   color:#777;
 }
-.moreInformation p{
+.gu-interactive .moreInformation p{
   line-height: 18px;
   font-family: Arial;
   font-size:12px;
   display: none;
 }
-.groupStageWrapper{
+.gu-interactive .groupStageWrapper{
   border-top:1px solid #ddd;
   margin-top: 0;
 }
-.groupStage{
+.gu-interactive .groupStage{
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.currentStatus{
+.gu-interactive .currentStatus{
   border: 1px dashed #ccc;
   padding-top: 15px;
   background: #FFFEF2;
@@ -109,7 +109,7 @@ h3{
   -webkit-transition:opacity 0.5s linear;
 }
 
-.currentStatus p{
+.gu-interactive .currentStatus p{
   height: 30px;
   font-size: 12px;
   font-family: arial;
@@ -121,20 +121,20 @@ h3{
   text-align: center;
 }
 
-.currentStatus p strong{
+.gu-interactive .currentStatus p strong{
   /*display:block;
   font-style:normal;
   margin-bottom:2px;*/
 }
 
 
-.group{
+.gu-interactive .group{
   min-width: 145px;
   width: 49%;
   margin: 0 2% 20px 0;
   float: left;
 }
-.images{
+.gu-interactive .images{
   height: 0;
   padding-bottom:33%;
   position: relative;
@@ -142,18 +142,18 @@ h3{
   display:none;
 }
 
-.images img{
+.gu-interactive .images img{
   opacity:0;
   -webkit-transition: opacity 0.5s linear;
 }
 
 
 
-.group:nth-of-type(2n){
+.gu-interactive .group:nth-of-type(2n){
   margin-right: 0;
 }
 
-h4{
+.gu-interactive h4{
   font-size: 2rem;
   font-weight: normal;
   border-bottom: 2px solid #ececec;
@@ -161,24 +161,24 @@ h4{
   padding-bottom: 1rem;
 }
 
-.teamPhoto{
+.gu-interactive .teamPhoto{
   width:50%;
   height: auto;
   margin: 0;
   float: left;
   display:none;
 }
-.teamPhoto2, .teamPhoto3{
+.gu-interactive .teamPhoto2, .gu-interactive .teamPhoto3{
   display: none;
 }
 
-.teams ul{
+.gu-interactive .teams ul{
   list-style: none;
   margin:0;
   padding:0;
 }
 
-.teams ul li{
+.gu-interactive .teams ul li{
   font-family: Guardian Sans Headline, Arial;
   border-top: 1px solid #ececec;
   padding: 4px 0;
@@ -186,44 +186,44 @@ h4{
   -webkit-transition: opacity 0.2s linear;
   font-weight: normal;
 }
-.teams ul li.ranked{
+.gu-interactive .teams ul li.ranked{
   display:none;
   opacity:0;
 }
 
-.teams ul li:nth-of-type(1){
+.gu-interactive .teams ul li:nth-of-type(1){
   
   border-top: none;
 }
 
-.team0 .countryFlag, .team0 .teamName, .team0 .teamInfo, .team0 .championshipwinner{
+.gu-interactive .team0 .countryFlag, .gu-interactive .team0 .teamName, .gu-interactive .team0 .teamInfo, .gu-interactive .team0 .championshipwinner{
   float:right;
 }
-.team0 .championshipwinner{
+.gu-interactive .team0 .championshipwinner{
   margin-right: 5px;
 }
 
-.countryFlag{
+.gu-interactive .countryFlag{
   width: 12px;
   height: 12px;
   margin: 4px 5px 0;
   float: left;
 }
 
-.teamInfo{
+.gu-interactive .teamInfo{
   float: left;
   width: 82%;
   margin-top: 3px;
 }
-.teamName{
+.gu-interactive .teamName{
   font-size: 1.4rem;
   float: left;
 }
 
-.finals .teamName{
+.gu-interactive .finals .teamName{
   color: #777;
 }
-.winner{
+.gu-interactive .winner{
   width: 6px;
   height: 6px;
   background: green;
@@ -233,7 +233,7 @@ h4{
   opacity:0;
 }
 
-.championshipwinner{
+.gu-interactive .championshipwinner{
   width: 12px;
   height: 15px;
   background: url(../imgs/cup.png);
@@ -242,99 +242,99 @@ h4{
 
   margin-left:5px;
 }
-.teamPot{
+.gu-interactive .teamPot{
   font-size: 1rem;
   color: #999;
   margin-top:2px;
 }
 
-.share{
+.gu-interactive .share{
   text-align: center;
   margin: 10px 0 40px;
 }
 
-.share p{
+.gu-interactive .share p{
   font-size:16px;
   margin-top: 0;
 }
 
-.shareButtons{
+.gu-interactive .shareButtons{
   display: block;
   margin: 0 auto;
 }
 
-.showWinners{
-  margin-bottom:10px;
+.gu-interactive .showWinners{
+ margin-bottom:10px;
   margin-top:0;
 }
 
-.disclaimerWinners{
+.gu-interactive .disclaimerWinners{
   margin: 0 auto 50px;
   text-align: center;
 }
 
-.knockout_wrapper{
+.gu-interactive .knockout_wrapper{
   margin-top: 40px;
   display:none;
 }
 
-.finalsTitle{
+.gu-interactive .finalsTitle{
   font-family: 'Guardian Egyptian Text', Arial, Georgia, serif;
   font-size: 2.6rem;
   margin-bottom: 0;
   font-weight:500;
 }
 
-.final{
+.gu-interactive .final{
   margin-bottom: 40px;
 }
 
-.title{
+.gu-interactive .title{
 
   border-bottom: 2px solid #ececec;
   padding: 10px 0 0;
   margin: 20px 0 0;
 }
 
-.title h4{
+.gu-interactive .title h4{
   text-align: center;
   border: none;
   font-size: 20px;
 }
 
-.quarterfinals{
+.gu-interactive .quarterfinals{
   margin-top:20px;
 }
 
-.match{
+.gu-interactive .match{
   float: left;
   width: 100%;
   border-bottom: 1px solid #ccc;
 
 }
 
-.final .match .team {
+.gu-interactive .final .match .team {
   padding: 4px 0 6px;
 }
 
-.match .team{
+.gu-interactive .match .team{
   width: 47%;
   float: left;
   font-family: Guardian Sans Headline, Arial;
   padding: 4px 0;
 }
 
-.team0{
+.gu-interactive .team0{
   text-align: right;
 }
 
-.finalswinner .teamName{
+.gu-interactive .finalswinner .teamName{
   color: #333;
   font-family: 'Guardian Agate Sans';
   font-weight:bold;
 }
 
-.teamSeparator0{
+.gu-interactive .teamSeparator0{
   width:2%;
   height:1px;
   margin: 19px 2% 0;
@@ -342,7 +342,7 @@ h4{
   float: left;
 }
 
-.imageOverlay{
+.gu-interactive .imageOverlay{
   width:100%;
   height:100%;
   background:rgba(0,0,0,0.4);
@@ -352,13 +352,13 @@ h4{
   top:0;
 }
 
-.champions{
+.gu-interactive .champions{
   position: relative;
   padding-bottom:67%;
   height:0;
 }
 
-.champions img{
+.gu-interactive .champions img{
   width: auto;
   height: auto;
   margin: 0;
@@ -366,7 +366,7 @@ h4{
   width: 100%;
 }
 
-.champions .shareButtons{
+.gu-interactive .champions .shareButtons{
   width:auto;
   height:44px;
   top:0;
@@ -380,7 +380,7 @@ h4{
 
 
 
-#topBar{
+.gu-interactive #topBar{
   height:36px;
   width: 100%;
   background: rgba(255,255,255,0.8);
@@ -395,7 +395,7 @@ h4{
 
 
 
-.reDrawBtn{
+.gu-interactive .reDrawBtn{
   -webkit-font-smoothing: antialiased;
   background: #3A84B1;
   border: none;
@@ -410,14 +410,14 @@ h4{
   border: 1px solid #246892;
 }
 
-.reDrawBtn img{
+.gu-interactive .reDrawBtn img{
   margin-right: 5px;
   position:relative;
   height: 10px;
   width: 10px;
 }
 
-#topBar .reDrawBtn{
+.gu-interactive #topBar .reDrawBtn{
   left:0;
   right:0;
   margin:3px auto;
@@ -425,81 +425,81 @@ h4{
   width:80px;
 }
 
-.share .reDrawBtn{
+.gu-interactive .share .reDrawBtn{
   -webkit-font-smoothing: antialiased;
   padding: 8px 8px 7px;
 }
 
-.share .reDrawBtn img{
+.gu-interactive .share .reDrawBtn img{
   margin-right: 2px;
 }
 
 
 @media (min-width: 41.25em) {
-  .primaryImageOfPage{
+  .gu-interactive .primaryImageOfPage{
     margin: 0;
   }
-  h2{font-size: 3rem;}
-  h3{font-size:1.8rem;}
+  .gu-interactive h2{font-size: 3rem;}
+  .gu-interactive h3{font-size:1.8rem;}
   
-  .group{
+  .gu-interactive .group{
   width: 32%;
   margin: 0 2% 20px 0;
   }
 
-  .group:nth-of-type(2n + 1),.group:nth-of-type(2n){
+  .gu-interactive .group:nth-of-type(2n + 1),.gu-interactive .group:nth-of-type(2n){
   margin:0 2% 20px 0;
   }
 
-  .group:nth-of-type(3n){
+  .gu-interactive .group:nth-of-type(3n){
   margin-right: 0;
   }
 
-.share{
+.gu-interactive .share{
   text-align: center;
   margin: -5px 0 40px;
 }
 
-  .share .champions img{
+  .gu-interactive .share .champions img{
   width: 300px;
   height: auto;
   top:0;
 }
-.imageOverlay{
+.gu-interactive .imageOverlay{
   width:300px;
   height:200px;
   margin: 0 auto;
   left:0;
   right:0;
 }
-.shareButtons{
+.gu-interactive .shareButtons{
     display: inline;
     margin: 0;
 }
 
-#topBar{
+.gu-interactive #topBar{
   display: none;
 }
 
-.clearboth{
+.gu-interactive .clearboth{
     clear:both;
 }
 
-.champions{
+.gu-interactive .champions{
   height: auto;
   width: auto;
   padding-bottom:0;
 }
 
-.images{
+.gu-interactive .images{
   display:block;
 }
 
-.teamPhoto{
+.gu-interactive .teamPhoto{
   display:block;
 }
 
-.teamPhoto2, .teamPhoto3{
+.gu-interactive .teamPhoto2, .gu-interactive .teamPhoto3{
   display: none;
 }
 
@@ -513,30 +513,30 @@ h4{
 }
 
 @media (min-width: 81.25em) {
-    .group:nth-of-type(3n){
+    .gu-interactive .group:nth-of-type(3n){
     float: right;
       }
 
-      .group{
+      .gu-interactive .group{
         width:23.5%;
         margin-right:2%;
       }
 
 
-  .group:nth-of-type(2n + 1),.group:nth-of-type(2n){
+  .gu-interactive .group:nth-of-type(2n + 1),.group:nth-of-type(2n){
   margin-right: 2%;
   margin-left: 0;
   }
 
-  .group:nth-of-type(3n + 1){
+  .gu-interactive .group:nth-of-type(3n + 1){
   margin-left: 0;
   }
 
-.group:nth-of-type(3n){
+.gu-interactive .group:nth-of-type(3n){
 margin-right: 2%;
 float:left;
 }
-.group:nth-of-type(4n){
+.gu-interactive .group:nth-of-type(4n){
 margin-right: 0;
 }
 
