@@ -107,7 +107,6 @@ define([
   function startDrawAnimation(speed2) {
     var speed = speed2;
     function fadeInTeam(i, y) {
-      console.log(y);
       setTimeout(function () {
         var x = i +1;
         $('.group:eq(' + y +')').find('.teams ul li.unranked .teamInfo .teamPot:contains("Pot ' + x + '")').closest('li').css('opacity','1');
