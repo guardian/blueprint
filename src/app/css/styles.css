@@ -454,6 +454,7 @@ html{
   font-weight: bold;
   cursor: pointer;
   border: 1px solid #246892;
+  display:inline-block;
 }
 
 .gu-interactive .reDrawBtn img{
