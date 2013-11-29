@@ -7,6 +7,7 @@ define(['jquery', 'handlebars', 'config', 'text!templates/handlebars_example.hbs
 
 	function render() {
 		currentData = TeamModel.generateGroups();
+		console.log(TeamModel.generateGroups());
 		var templateConfig = {
 		  groups: currentData,
 		  teams: currentData.teams,

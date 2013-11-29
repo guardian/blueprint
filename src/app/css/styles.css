@@ -409,6 +409,7 @@ html{
   margin: 0;
   top: 0;
   width: 100%;
+  display:inline-block;
 }
 
 .gu-interactive .champions .shareButtons{

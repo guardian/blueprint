@@ -194,7 +194,6 @@ define(['jquery', 'seedrandom'], function($) {
 		//var orderedGroups = rankGroups(groups);
 		var rankedGroups = rankGroups(groups);
 
-
 		return rankedGroups;
 	}
 

@@ -70,15 +70,13 @@ define([
       console.log('4');
     } else {
       drawPicker.render();
-      console.log(drawPicker.render());
+      console.log('hoi');
     }
 
     var $reDrawBtnEnd = $el.find('.share .reDrawBtn');
-    console.log('1');
     $reDrawBtnEnd.on('click', doDrawThing);
-    console.log('2');
     $reDrawBtnEnd.on('click', reDraw);
-    console.log('3');
+   
 
     $showWinnersBtn = $el.find('.showWinners');
     var $knockoutWrapper = $el.find('.knockout_wrapper');
