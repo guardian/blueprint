@@ -315,7 +315,7 @@ p+figure,p+video{margin-top:4px}.element-video__wrap{position:relative;padding-b
         script.async = 'async';
         script.src = 'http://assets.guim.co.uk/javascripts/bootstraps/app.4320d015cbe40d89a4f87776a2bda447.js';
 
-        document.getElementsByTagName("head")[0].appendChild(script);
+       // document.getElementsByTagName("head")[0].appendChild(script);
     })(guardian.isModernBrowser);
 </script>
 
@@ -1010,17 +1010,13 @@ p+figure,p+video{margin-top:4px}.element-video__wrap{position:relative;padding-b
                 setTimeout( function () {
                     if(xhr.readyState < 4) {
                         xhr.abort();
-                        loadCssWithLink();
+                        //loadCssWithLink();
                     }
                 }, 5000);
                 xhr.send();
             }
 
-            if(guardian.isModernBrowser && !guardian.css.loaded && 'withCredentials' in new XMLHttpRequest()) {
-                loadCssWithAjax();
-            } else if(!guardian.isModernBrowser || !('withCredentials' in new XMLHttpRequest())){
                 loadCssWithLink();
-            }
         })();
     </script>
 
@@ -1070,14 +1066,12 @@ p+figure,p+video{margin-top:4px}.element-video__wrap{position:relative;padding-b
 </noscript>
 
 
+<script src="http://cdnjs.cloudflare.com/ajax/libs/curl/0.7.3/curl-for-jQuery/curl.js"></script>
 <script>
-	setTimeout(function() {
-console.log(document.querySelector('figure.interactive'));
 		require(['/boot.js']).then(function(app) {
 			var el = document.querySelector('figure.interactive');
 			app.boot(el, window, {});
 		})
-	}, 400);
 </script>
 </body>
 </html>
