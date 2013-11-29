@@ -14,6 +14,8 @@ html{
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
+  max-width:1060px;
+  margin:0 auto;
 }
 .gu-interactive .primaryImageOfPage{
       padding: 0;
@@ -48,7 +50,7 @@ html{
   border: none !important;
   font-weight: 600 !important;
   margin-bottom:15px !important;
-  margin-top:40px;
+  padding-top:40px !important;
 }
 
 .gu-interactive h3{ 
@@ -142,7 +144,7 @@ html{
 
 
 .gu-interactive .group{
-  min-width: 145px;
+  min-width: 130px;
   width: 49%;
   margin: 0 2% 20px 0;
   float: left;
@@ -268,7 +270,7 @@ html{
 
 .gu-interactive .share{
   text-align: center;
-  margin: 10px 0 40px;
+  margin: 10px 0 0;
 }
 
 .gu-interactive .share p{
@@ -298,9 +300,9 @@ html{
 .gu-interactive .shareButtons p{
   padding-bottom:10px;
   color:#fff;
-  font-family: Arial;
-  font-weight:bold;
-  font-size:13px;
+  font-family: Guardian Agate Sans, Arial;
+font-weight:bold;
+  font-size:14px;
   width:90%;
   margin: 0 auto;
 }
@@ -358,7 +360,7 @@ html{
   float: left;
   width: 100%;
   border-bottom: 1px solid #ccc;
-
+  border-top:none !important;
 }
 
 .gu-interactive .final .match .team {
@@ -487,6 +489,12 @@ html{
   margin-right: 2px;
 }
 
+@media (min-width: 480px) {
+.gu-interactive .primaryImageOfPage{
+      padding: 0;
+      margin: 0 0;
+    }
+}
 
 @media (min-width: 41.25em) {
   .gu-interactive .primaryImageOfPage{
@@ -510,7 +518,8 @@ html{
 
 .gu-interactive .share{
   text-align: center;
-  margin: -5px 0 40px;
+  margin: -5px 0 0;
+  min-height:294px;
 }
 
   .gu-interactive .share .champions img{

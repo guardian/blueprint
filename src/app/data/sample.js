@@ -26,7 +26,7 @@ define(['jquery', 'seedrandom'], function($) {
     	switzerland: {teamName: 'Switzerland',  rank: 7, cont: 'Europe', flagImage: 'CHE.jpg', pot:"1", teamPhoto:"switzerland.jpg", winning: "" },
     	portugal: { teamName: 'Portugal', rank: 14, cont: 'Europe', flagImage: 'PRT.jpg', pot:"4", teamPhoto:"portugal.jpg", winning: "" },
     	greece: {teamName: 'Greece',  rank: 15, cont: 'Europe', flagImage: 'GRC.jpg', pot:"4", teamPhoto:"greece.jpg", winning: "" },
-    	bosniaherzegovina: { teamName: 'BosniaHerzegovina', rank: 16, cont: 'Europe', flagImage: 'BIH.jpg', pot:"4", teamPhoto:"bosnia.jpg", winning: "" },
+    	bosniaherzegovina: { teamName: 'Bosnia-Herzegovina', rank: 16, cont: 'Europe', flagImage: 'BIH.jpg', pot:"4", teamPhoto:"bosnia.jpg", winning: "" },
     	croatia: {teamName: 'Croatia',  rank: 18, cont: 'Europe', flagImage: 'HRV.jpg', pot:"4", teamPhoto:"croatia.jpg", winning: "" },
     	france: { teamName: 'France', rank: 21, cont: 'Europe', flagImage: 'FRA.jpg', pot:"3", teamPhoto:"france.jpg", winning: "" },
     	iran: {teamName: 'Iran',  rank: 49, cont: 'Asia', flagImage: 'IRN.jpg', pot:"2", teamPhoto:"iran.jpg", winning: "" },

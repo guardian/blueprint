@@ -155,7 +155,7 @@ define([
 
         doDrawThing();
         scrollToGroupStage();
-        startDrawAnimation(150);
+        startDrawAnimation(130);
     }
 
     $el.append($headerElm);
@@ -189,14 +189,15 @@ define([
 
 
       var newScroll = $body.scrollTop();
-
-      if(newScroll >= 750){
+      var moreInformationOffset = $('.moreInformation').offset().top;
+      console.log(moreInformationOffset)
+      if(newScroll >= moreInformationOffset){
         // if(winnersVisible == 'block'){
 
           $topBar.css('visibility', 'visible');
         // }
       }
-      if(newScroll <= 750 && oldScroll >750){
+      if(newScroll <= moreInformationOffset && oldScroll >moreInformationOffset){
         $topBar.css('visibility', 'hidden');
       }
       oldScroll = newScroll;
