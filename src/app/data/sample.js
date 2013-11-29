@@ -1,7 +1,7 @@
 // Example of storing data
 define(['jquery', 'seedrandom'], function($) {
 	var teams = {
-		holland: {teamName: 'Netherlands',  rank: 8, cont: 'Europe', flagImage: 'NLD.jpg', pot:"4", teamPhoto:"holland.jpg", winning: "" },
+		holland: {teamName: 'Holland',  rank: 8, cont: 'Europe', flagImage: 'NLD.jpg', pot:"4", teamPhoto:"holland.jpg", winning: "" },
     	spain: { teamName: 'Spain', rank: 1, cont: 'Europe', flagImage: 'ESP.jpg', pot:"1", teamPhoto:"spain.jpg", winning: "" },
     	italy: {teamName: 'Italy',  rank: 9, cont: 'Europe', flagImage: 'ITA.jpg', pot:"4", teamPhoto:"italy.jpg", winning: "" },
     	ivorycoast: { teamName: "Cote d'Ivoire", rank: 17, cont: 'Africa', flagImage: 'CIV.jpg', pot:"3", teamPhoto:"ivorycoast.jpg", winning: "" },
@@ -22,7 +22,7 @@ define(['jquery', 'seedrandom'], function($) {
     	nigeria: {teamName: 'Nigeria',  rank: 33, cont: 'Africa', flagImage: 'NGA.jpg', pot:"3", teamPhoto:"nigeria.jpg", winning: "" },
     	colombia: { teamName: "Colombia", rank: 4, cont: 'S-America', flagImage: 'COL.jpg', pot:"1", teamPhoto:"colombia.jpg", winning: "" },
     	belgium: {teamName: 'Belgium',  rank: 5, cont: 'Europe', flagImage: 'BEL.jpg', pot:"1", teamPhoto:"belgium.jpg", winning: "" },
-    	uruguay: { teamName: 'Uruguay', rank: 6, cont: 'S-America', flagImage: 'URY.jpg', pot:"1", teamPhoto:"argentina.jpg", winning: "" },
+    	uruguay: { teamName: 'Uruguay', rank: 6, cont: 'S-America', flagImage: 'URY.jpg', pot:"1", teamPhoto:"uruguay.jpg", winning: "" },
     	switzerland: {teamName: 'Switzerland',  rank: 7, cont: 'Europe', flagImage: 'CHE.jpg', pot:"1", teamPhoto:"switzerland.jpg", winning: "" },
     	portugal: { teamName: 'Portugal', rank: 14, cont: 'Europe', flagImage: 'PRT.jpg', pot:"4", teamPhoto:"portugal.jpg", winning: "" },
     	greece: {teamName: 'Greece',  rank: 15, cont: 'Europe', flagImage: 'GRC.jpg', pot:"4", teamPhoto:"greece.jpg", winning: "" },
@@ -31,7 +31,7 @@ define(['jquery', 'seedrandom'], function($) {
     	france: { teamName: 'France', rank: 21, cont: 'Europe', flagImage: 'FRA.jpg', pot:"3", teamPhoto:"france.jpg", winning: "" },
     	iran: {teamName: 'Iran',  rank: 49, cont: 'Asia', flagImage: 'IRN.jpg', pot:"2", teamPhoto:"iran.jpg", winning: "" },
     	korearepublic: { teamName: 'Korea Republic', rank: 56, cont: 'Asia', flagImage: 'KOR.jpg', pot:"2", teamPhoto:"southkorea.jpg", winning: "" },
-    	mexico: {teamName: 'Mexico',  rank: 24, cont: 'N-America', flagImage: 'MEX.jpg', pot:"2", teamPhoto:"russia.jpg", winning: "" },
+    	mexico: {teamName: 'Mexico',  rank: 24, cont: 'N-America', flagImage: 'MEX.jpg', pot:"2", teamPhoto:"mexico.jpg", winning: "" },
     	honduras: { teamName: 'Honduras', rank: 34, cont: 'N-America', flagImage: 'HND.jpg', pot:"2", teamPhoto:"honduras.jpg", winning: "" }
 
 	};
@@ -267,33 +267,33 @@ define(['jquery', 'seedrandom'], function($) {
 				} else if(index == "r2" || index == "r4"){
 					quarterFinals.q2.teams.push(round.teams[0]);
 					round.teams[0].winRoundOf16 = "winner";
-					round.teams[0].roundOf16Status = "Winner of " + round.name;
+					round.teams[0].roundOf16Status = "Won " + round.name;
 				} else if(index == "r5" || index == "r7"){
 					quarterFinals.q3.teams.push(round.teams[0]);
 					round.teams[0].winRoundOf16 = "winner";
-					round.teams[0].roundOf16Status = "Winner of " + round.name;
+					round.teams[0].roundOf16Status = "Won " + round.name;
 				} else if(index == "r6" || index == "r8"){
 					quarterFinals.q4.teams.push(round.teams[0]);
 					round.teams[0].winRoundOf16 = "winner";
-					round.teams[0].roundOf16Status = "Winner of " + round.name;
+					round.teams[0].roundOf16Status = "Won " + round.name;
 				}
 			}else{
 				if(index == "r1" || index == "r3"){
 					quarterFinals.q1.teams.push(round.teams[1]);
 					round.teams[1].winRoundOf16 = "winner";
-					round.teams[1].roundOf16Status = "Winner of " + round.name;
+					round.teams[1].roundOf16Status = "Won " + round.name;
 				} else if(index == "r2" || index == "r4"){
 					quarterFinals.q2.teams.push(round.teams[1]);
 					round.teams[1].winRoundOf16 = "winner";
-					round.teams[1].roundOf16Status = "Winner of " + round.name;
+					round.teams[1].roundOf16Status = "Won " + round.name;
 				} else if(index == "r5" || index == "r7"){
 					quarterFinals.q3.teams.push(round.teams[1]);
 					round.teams[1].winRoundOf16 = "winner";
-					round.teams[1].roundOf16Status = "Winner of " + round.name;
+					round.teams[1].roundOf16Status = "Won " + round.name;
 				} else if(index == "r6" || index == "r8"){
 					quarterFinals.q4.teams.push(round.teams[1]);
 					round.teams[1].winRoundOf16 = "winner";
-					round.teams[1].roundOf16Status = "Winner of " + round.name;
+					round.teams[1].roundOf16Status = "Won " + round.name;
 				}
 			}
 		});
