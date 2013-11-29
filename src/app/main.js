@@ -159,6 +159,7 @@ define([
     $el.append($headerElm);
 
     var $topBar = $(topBarTemplate);
+    // Config.basePath + 'imgs/',
     var oldScroll = 0;
     var $reDrawBtn = $topBar.find('.reDrawBtn');
     var $body = $('body');

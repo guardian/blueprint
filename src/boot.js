@@ -10,7 +10,7 @@ define([], function() {
     boot: function (el, context, config) {
 
 
-        var isProd = /gucode\.gnl|gu\.com|theguardian\.com|guardian\.co\.uk/.test(document.location.host);
+        var isProd = /gucode\.gnl|gu\.com|theguardian\.com|guardian\.co\.uk|amazonaws\.com/.test(document.location.host);
         var localPath = 'app/';
         var remotePath = 'http://s3.amazonaws.com/gdn-cdn/next-gen/sport/ng-interactive/2013/nov/20/1/app/';
 
@@ -55,6 +55,7 @@ define([], function() {
         } else {
             // curl, i.e. next-gen
             require(cfg, ['main']).then(function(Main) {
+              el.classList.add('gu-interactive');
               addCSS();
               Main.init(el);
             });
