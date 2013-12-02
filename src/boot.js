@@ -10,7 +10,7 @@ define([], function() {
     boot: function (el, context, config) {
 
 
-        var isProd = /gucode\.gnl|gu\.com|theguardian\.com|guardian\.co\.uk|amazonaws\.com/.test(document.location.host);
+        var isProd = /gucode\.gnl|gu\.com|guprod\.gnl|theguardian\.com|guardian\.co\.uk|amazonaws\.com/.test(document.location.host);
         var localPath = 'app/';
         var remotePath = 'http://interactive.guim.co.uk/next-gen/football/ng-interactive/2013/dec/world-cup-draw-2014-create-your-own-draw-interactive/app/';
 
