@@ -38,7 +38,6 @@ define([
   var winnersVisible = false;
 
   function reDraw() {
-    Data.generateNewSeed();
     if(winnersVisible == false){
       $('.images img').css("opacity", "1");
       $('.currentStatus').css("display", "none");
@@ -65,6 +64,7 @@ define([
    }
 
   function doDrawThing() {
+      Data.generateNewSeed();
     if (!$drawPickerElm) {
       $drawPickerElm = drawPicker.render();
       $el.append($drawPickerElm);
@@ -166,8 +166,8 @@ define([
     var $reDrawBtn = $topBar.find('.reDrawBtn');
     var $body = $('body');
 
-    $reDrawBtn.on('click', doDrawThing);
     $reDrawBtn.on('click', reDraw);
+    $reDrawBtn.on('click', doDrawThing);
     $reDrawBtn.on('click', function(){
       startDrawAnimation(10);
     });
