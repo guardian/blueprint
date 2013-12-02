@@ -1,4 +1,4 @@
-define(['jquery', 'handlebars', 'config', 'text!templates/handlebars_example.hbs', 'views/knockoutStage', 'data/sample'],
+define(['jquery', 'handlebars', 'config', 'templates/handlebars_example', 'views/knockoutStage', 'data/sample'],
 	function($, handlebars, Config, HandleBarsExample, knockoutStageView, TeamModel) {
     var Handlebars = handlebars.default;
 	var $html = $('<div class="groupStageWrapper">');
