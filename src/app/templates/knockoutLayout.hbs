@@ -15,6 +15,7 @@
 						<img class="countryFlag" src="{{ ../../img_path }}flags/{{this.flagImage}}"/>
 						<div class="teamInfo">
 							<div class="teamName">{{this.teamName}}</div>
+							<div class="{{this.winner}}"></div>
 							<div class="clearboth"></div>
 							<div class="teamPot">{{this.groupStatus}}</div>
 						</div>
@@ -41,6 +42,7 @@
 						<img class="countryFlag" src="{{ ../../img_path }}flags/{{this.flagImage}}"/>
 						<div class="teamInfo">
 							<div class="teamName">{{this.teamName}}</div>
+							<div class="{{this.winner}}"></div>
 							<div class="clearboth"></div>
 							<div class="teamPot">{{this.roundOf16Status}}</div>
 						</div>
@@ -67,6 +69,7 @@
 					<img class="countryFlag" src="{{ ../../img_path }}flags/{{this.flagImage}}"/>
 					<div class="teamInfo">
 						<div class="teamName">{{this.teamName}}</div>
+						<div class="{{this.winner}}"></div>
 						<div class="clearboth"></div>
 						<div class="teamPot">{{this.quarterFinalStatus}}</div>
 					</div>
@@ -112,7 +115,7 @@
 	<img src="{{ img_path }}teams/{{winner.teamPhoto}}"/>
 	<div class="imageOverlay">
 		<div class="shareButtons">
-		<p>“{{winner.teamName}} will win World Cup 2014 according to my draw. Create your own at @guardian.”</p>
+		<p>“{{winner.teamName}} will win World Cup 2014 according to my draw. Create your own with the @guardian draw simulator”</p>
             <a href="" class="facebook_share">
                 <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="-2 -2 36 36" enable-background="new -2 -2 36 36">
                     <g fill="#fff">

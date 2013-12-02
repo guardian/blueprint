@@ -22,9 +22,9 @@ html{
       margin: 0 -10px;
     }
 
-#content .gu-interactive .primaryImageOfPage{
+/*#content .gu-interactive .primaryImageOfPage{
   display:none;
-}
+}*/
 
 #content .interactiveIntroduction .divider{
 
@@ -256,6 +256,24 @@ html{
   opacity:0;
 }
 
+.gu-interactive .knockout_wrapper .winner{
+  visibility: hidden;
+}
+
+.gu-interactive .knockout_wrapper .finalswinner .winner{
+  visibility: visible;
+}
+
+.gu-interactive .knockout_wrapper .team0 .winner{
+  float:right;
+  margin-right:5px;
+}
+
+.gu-interactive .knockout_wrapper .team1 .winner{
+  float:left;
+  margin-left:5px;
+}
+
 .gu-interactive .championshipwinner{
   width: 12px;
   height: 15px;
@@ -279,6 +297,7 @@ html{
 .gu-interactive .share p{
   font-size:16px;
   margin-top: 15px;
+  font-family: Guardian Sans Headline;
 }
 
 .gu-interactive .shareButtons{

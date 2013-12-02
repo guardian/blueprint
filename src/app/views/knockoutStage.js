@@ -4,6 +4,7 @@ define(['jquery', 'handlebars', 'config', 'text!templates/knockoutLayout.hbs', '
     var Handlebars = handlebars.default;
 	var $html = $('<div>');
 	var template = Handlebars.compile(KnockoutTemplate);
+    var content;
 
     function updateSocialLinks() {
         $('.tweet_share', 'body').attr('href', generateTwitterLink());
@@ -20,8 +21,10 @@ define(['jquery', 'handlebars', 'config', 'text!templates/knockoutLayout.hbs', '
     }
 
     function generateTwitterLink() {
-        var text = encodeURIComponent('Some text goes here');
+
+        var text = encodeURIComponent(content.winner.teamName + ' will win World Cup 2014 according to my draw. Create your own with the @guardian draw simulator');
         var link = encodeURIComponent('http://gu.com/p/3kp92?seed=' + TeamModel.getSeed());
+
         var twitterLink = 'https://twitter.com/intent/tweet';
         twitterLink += '?text=' + text;
         twitterLink += '&url=' + link;
@@ -30,7 +33,7 @@ define(['jquery', 'handlebars', 'config', 'text!templates/knockoutLayout.hbs', '
 
 
 	function render() {
-		var content = TeamModel.getGroups();
+		content = TeamModel.getGroups();
 
 		var templateConfig = {
 		  roundOf16: content.roundOf16,
