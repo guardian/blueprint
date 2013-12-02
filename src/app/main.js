@@ -64,7 +64,7 @@ define([
    }
 
   function doDrawThing() {
-      Data.generateNewSeed();
+
     if (!$drawPickerElm) {
       $drawPickerElm = drawPicker.render();
       $el.append($drawPickerElm);
@@ -75,6 +75,7 @@ define([
     }
 
     var $reDrawBtnEnd = $el.find('.share .reDrawBtn');
+    $reDrawBtnEnd.on('click', Data.generateNewSeed);
     $reDrawBtnEnd.on('click', doDrawThing);
     $reDrawBtnEnd.on('click', reDraw);
 
@@ -165,7 +166,7 @@ define([
     var oldScroll = 0;
     var $reDrawBtn = $topBar.find('.reDrawBtn');
     var $body = $('body');
-
+    $reDrawBtn.on('click', Data.generateNewSeed);
     $reDrawBtn.on('click', reDraw);
     $reDrawBtn.on('click', doDrawThing);
     $reDrawBtn.on('click', function(){
