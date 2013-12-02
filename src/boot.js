@@ -55,7 +55,7 @@ define([], function() {
         } else {
             // curl, i.e. next-gen
             require(cfg, ['main']).then(function(Main) {
-              el.classList.add('gu-interactive');
+              el.className = el.className + ' gu-interactive';
               addCSS();
               Main.init(el);
             });
