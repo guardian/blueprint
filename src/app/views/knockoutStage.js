@@ -11,8 +11,8 @@ define(['jquery', 'handlebars', 'config', 'text!templates/knockoutLayout.hbs', '
     }
 
     function generateFacebookLink() {
-        var directURI = encodeURIComponent('http://www.gu.com/XXXXXXXXXXX');
-        var link = encodeURIComponent('http://www.gu.com/XXXXXXXXXXX&seed=' + TeamModel.getSeed());
+        var directURI = encodeURIComponent('http://gu.com/p/3kp92');
+        var link = encodeURIComponent('http://gu.com/p/3kp92&seed=' + TeamModel.getSeed());
         var fbURL = 'https://www.facebook.com/dialog/feed?app_id=180444840287';
         fbURL += '&redirect_uri=' + directURI;
         fbURL += '&link=' + link;
@@ -21,7 +21,7 @@ define(['jquery', 'handlebars', 'config', 'text!templates/knockoutLayout.hbs', '
 
     function generateTwitterLink() {
         var text = encodeURIComponent('Some text goes here');
-        var link = encodeURIComponent('http://www.gu.com/XXXXXXXXXXX&seed=' + TeamModel.getSeed());
+        var link = encodeURIComponent('http://gu.com/p/3kp92&seed=' + TeamModel.getSeed());
         var twitterLink = 'https://twitter.com/intent/tweet';
         twitterLink += '?text=' + text;
         twitterLink += '&url=' + link;

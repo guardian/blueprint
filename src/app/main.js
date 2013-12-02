@@ -14,7 +14,7 @@ define([
   'text!templates/html_layout.hbs',
   'text!templates/handlebars_example.hbs',
   'text!templates/knockoutLayout.hbs',
-  'text!templates/topbar.html'
+  'text!templates/topbar.hbs'
 ], function(
   require,
   $,
@@ -30,6 +30,7 @@ define([
 ){
   var Handlebars = handlebars.default;
   var template = Handlebars.compile(HTMLTemplate);
+  var topBarTemplateHB = Handlebars.compile(topBarTemplate);
   var $drawPickerElm;
   var $el;
   var $headerElm;
@@ -76,7 +77,7 @@ define([
     var $reDrawBtnEnd = $el.find('.share .reDrawBtn');
     $reDrawBtnEnd.on('click', doDrawThing);
     $reDrawBtnEnd.on('click', reDraw);
-   
+
 
     $showWinnersBtn = $el.find('.showWinners');
     var $knockoutWrapper = $el.find('.knockout_wrapper');
@@ -114,7 +115,7 @@ define([
         y++;
         if (y < 8) {            //  if the counter < 10, call the loop function
           fadeInTeam(i, y);             //  ..  again which will trigger another
-        } 
+        }
       }, speed)
     }
 
@@ -160,8 +161,7 @@ define([
 
     $el.append($headerElm);
 
-    var $topBar = $(topBarTemplate);
-    // Config.basePath + 'imgs/',
+    $topBar = $(topBarTemplateHB({ img_path: Config.basePath + 'imgs/' }));
     var oldScroll = 0;
     var $reDrawBtn = $topBar.find('.reDrawBtn');
     var $body = $('body');
