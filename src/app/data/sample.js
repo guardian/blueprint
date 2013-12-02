@@ -5,24 +5,24 @@ define(['jquery', 'seedrandom'], function($) {
     	spain: { teamName: 'Spain', rank: 1, cont: 'Europe', flagImage: 'ESP.jpg', pot:"1", teamPhoto:"spain.jpg", winning: "" },
     	italy: {teamName: 'Italy',  rank: 9, cont: 'Europe', flagImage: 'ITA.jpg', pot:"4", teamPhoto:"italy.jpg", winning: "" },
     	ivorycoast: { teamName: "Cote d'Ivoire", rank: 17, cont: 'Africa', flagImage: 'CIV.jpg', pot:"3", teamPhoto:"ivorycoast.jpg", winning: "" },
-    	usa: {teamName: 'USA',  rank: 13, cont: 'N-America', flagImage: 'USA.jpg', pot:"2", teamPhoto:"usa.jpg", winning: "" },
-    	argentina: { teamName: 'Argentina', rank: 3, cont: 'S-America', flagImage: 'ARG.jpg', pot:"1", teamPhoto:"argentina.jpg", winning: "" },
-    	brazil: {teamName: 'Brazil',  rank: 11, cont: 'S-America', flagImage: 'BRA.jpg', pot:"1", teamPhoto:"brazil.jpg", winning: "" },
+    	usa: {teamName: 'USA',  rank: 13, cont: 'N America', flagImage: 'USA.jpg', pot:"2", teamPhoto:"usa.jpg", winning: "" },
+    	argentina: { teamName: 'Argentina', rank: 3, cont: 'S America', flagImage: 'ARG.jpg', pot:"1", teamPhoto:"argentina.jpg", winning: "" },
+    	brazil: {teamName: 'Brazil',  rank: 11, cont: 'S America', flagImage: 'BRA.jpg', pot:"1", teamPhoto:"brazil.jpg", winning: "" },
     	japan: { teamName: 'Japan', rank: 44, cont: 'Asia', flagImage: 'JPN.jpg', pot:"2", teamPhoto:"japan.jpg", winning: "" },
     	germany: {teamName: 'Germany',  rank: 2, cont: 'Europe', flagImage: 'DEU.jpg', pot:"1", teamPhoto:"germany.jpg", winning: "" },
     	england: { teamName: 'England', rank: 10, cont: 'Europe', flagImage: 'ENG.jpg', pot:"4", teamPhoto:"england.jpg", winning: "" },
     	russia: {teamName: 'Russia',  rank: 19, cont: 'Europe', flagImage: 'RUS.jpg', pot:"4", teamPhoto:"russia.jpg", winning: "" },
-    	ecuador: { teamName: 'Ecuador', rank: 22, cont: 'S-America', flagImage: 'ECU.jpg', pot:"3", teamPhoto:"ecuador.jpg", winning: "" },
+    	ecuador: { teamName: 'Ecuador', rank: 22, cont: 'S America', flagImage: 'ECU.jpg', pot:"3", teamPhoto:"ecuador.jpg", winning: "" },
     	australia: {teamName: 'Australia',  rank: 57, cont: 'Oceania', flagImage: 'AUS.jpg', pot:"2", teamPhoto:"australia.jpg", winning: "" },
-    	chile: { teamName: 'Chile', rank: 12, cont: 'S-America', flagImage: 'CHL.jpg', pot:"3", teamPhoto:"chile.jpg", winning: "" },
+    	chile: { teamName: 'Chile', rank: 12, cont: 'S America', flagImage: 'CHL.jpg', pot:"3", teamPhoto:"chile.jpg", winning: "" },
     	ghana: {teamName: 'Ghana',  rank: 23, cont: 'Africa', flagImage: 'GHA.jpg', pot:"3", teamPhoto:"ghana.jpg", winning: "" },
-    	costarica: { teamName: 'Costa Rica', rank: 31, cont: 'N-America', flagImage: 'CRI.jpg', pot:"2", teamPhoto:"costarica.jpg", winning: "" },
+    	costarica: { teamName: 'Costa Rica', rank: 31, cont: 'N America', flagImage: 'CRI.jpg', pot:"2", teamPhoto:"costarica.jpg", winning: "" },
     	algeria: {teamName: 'Algeria', rank: 32, cont: 'Africa', flagImage: 'DZA.jpg', pot:"3", teamPhoto:"algeria.jpg", winning: "" },
     	cameroon: { teamName: 'Cameroon', rank: 59, cont: 'Africa', flagImage: 'CMR.jpg', pot:"3", teamPhoto:"cameroon.jpg", winning: "" },
     	nigeria: {teamName: 'Nigeria',  rank: 33, cont: 'Africa', flagImage: 'NGA.jpg', pot:"3", teamPhoto:"nigeria.jpg", winning: "" },
-    	colombia: { teamName: "Colombia", rank: 4, cont: 'S-America', flagImage: 'COL.jpg', pot:"1", teamPhoto:"colombia.jpg", winning: "" },
+    	colombia: { teamName: "Colombia", rank: 4, cont: 'S America', flagImage: 'COL.jpg', pot:"1", teamPhoto:"colombia.jpg", winning: "" },
     	belgium: {teamName: 'Belgium',  rank: 5, cont: 'Europe', flagImage: 'BEL.jpg', pot:"1", teamPhoto:"belgium.jpg", winning: "" },
-    	uruguay: { teamName: 'Uruguay', rank: 6, cont: 'S-America', flagImage: 'URY.jpg', pot:"1", teamPhoto:"uruguay.jpg", winning: "" },
+    	uruguay: { teamName: 'Uruguay', rank: 6, cont: 'S America', flagImage: 'URY.jpg', pot:"1", teamPhoto:"uruguay.jpg", winning: "" },
     	switzerland: {teamName: 'Switzerland',  rank: 7, cont: 'Europe', flagImage: 'CHE.jpg', pot:"1", teamPhoto:"switzerland.jpg", winning: "" },
     	portugal: { teamName: 'Portugal', rank: 14, cont: 'Europe', flagImage: 'PRT.jpg', pot:"4", teamPhoto:"portugal.jpg", winning: "" },
     	greece: {teamName: 'Greece',  rank: 15, cont: 'Europe', flagImage: 'GRC.jpg', pot:"4", teamPhoto:"greece.jpg", winning: "" },
@@ -31,8 +31,8 @@ define(['jquery', 'seedrandom'], function($) {
     	france: { teamName: 'France', rank: 21, cont: 'Europe', flagImage: 'FRA.jpg', pot:"3", teamPhoto:"france.jpg", winning: "" },
     	iran: {teamName: 'Iran',  rank: 49, cont: 'Asia', flagImage: 'IRN.jpg', pot:"2", teamPhoto:"iran.jpg", winning: "" },
     	korearepublic: { teamName: 'Korea Republic', rank: 56, cont: 'Asia', flagImage: 'KOR.jpg', pot:"2", teamPhoto:"southkorea.jpg", winning: "" },
-    	mexico: {teamName: 'Mexico',  rank: 24, cont: 'N-America', flagImage: 'MEX.jpg', pot:"2", teamPhoto:"mexico.jpg", winning: "" },
-    	honduras: { teamName: 'Honduras', rank: 34, cont: 'N-America', flagImage: 'HND.jpg', pot:"2", teamPhoto:"honduras.jpg", winning: "" }
+    	mexico: {teamName: 'Mexico',  rank: 24, cont: 'N America', flagImage: 'MEX.jpg', pot:"2", teamPhoto:"mexico.jpg", winning: "" },
+    	honduras: { teamName: 'Honduras', rank: 34, cont: 'N America', flagImage: 'HND.jpg', pot:"2", teamPhoto:"honduras.jpg", winning: "" }
 
 	};
 
@@ -127,14 +127,14 @@ define(['jquery', 'seedrandom'], function($) {
 				orderedGroup[0].winner = "winner";
 				orderedGroup[0].groupStatus = "Winner of " + group.groupName;
 				orderedGroup[1].winner = "winner";
-				orderedGroup[1].groupStatus = "Second of " + group.groupName;
+				orderedGroup[1].groupStatus = "Runner-up " + group.groupName;
 				group.teamsOrdered = orderedGroup;
 			} else {
 				var orderedGroup = group.teams.slice().sort(function(a,b){ return a.rank-b.rank });
 				orderedGroup[0].winner = "winner";
 				orderedGroup[0].groupStatus = "Winner of " + group.groupName;
 				orderedGroup[1].winner = "winner";
-				orderedGroup[1].groupStatus = "Second of " + group.groupName;
+				orderedGroup[1].groupStatus = "Runner-up " + group.groupName;
 				group.teamsOrdered = orderedGroup;
 
 			}
@@ -233,15 +233,15 @@ define(['jquery', 'seedrandom'], function($) {
 		};
 
 		var quarterFinals = {
-			q1: {name: "Quarter Final 1", teams: []},
-			q2: {name: "Quarter Final 2", teams: []},
-			q3: {name: "Quarter Final 3", teams: []},
-			q4: {name: "Quarter Final 4", teams: []}
+			q1: {name: "quarter-final 1", teams: []},
+			q2: {name: "quarter-final 2", teams: []},
+			q3: {name: "quarter-final 3", teams: []},
+			q4: {name: "quarter-final 4", teams: []}
 		};
 
 		var semiFinals = {
-			s1: {name: "Semi Final 1", teams: []}, //winner q1 against winner q2
-			s2: {name: "Semi Final 2", teams: []} //winner q3 against winner q4
+			s1: {name: "semi-final 1", teams: []}, //winner q1 against winner q2
+			s2: {name: "semi-final 2", teams: []} //winner q3 against winner q4
 		};
 
 		var final = {
