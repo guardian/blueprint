@@ -163,7 +163,7 @@ math['seedrandom'] = function(seed, use_entropy) {
   // This function returns a random double in [0, 1) that contains
   // randomness in every bit of the mantissa of the IEEE 754 value.
 
-  math['random'] = function() {         // Closure to return a random double:
+  math['pseudorandom'] = function() {         // Closure to return a random double:
     var n = arc4.g(chunks),             // Start with a numerator n < 2 ^ 48
         d = startdenom,                 //   and denominator d = 2 ^ 48.
         x = 0;                          //   and no 'extra last byte'.

@@ -1,5 +1,69 @@
 // Example of storing data
 define(['jquery', 'seedrandom'], function($) {
+
+    // Add stable merge sort to Array and jQuery prototypes
+// Note: We wrap it in a closure so it doesn't pollute the global
+//       namespace, but we don't put it in $(document).ready, since it's
+//       not dependent on the DOM
+    (function() {
+
+        // expose to Array and jQuery
+        Array.prototype.msort = jQuery.fn.msort = msort;
+
+        function msort(compare) {
+
+            var length = this.length,
+                middle = Math.floor(length / 2);
+
+            if (!compare) {
+                compare = function(left, right) {
+                    if (left < right)
+                        return -1;
+                    if (left == right)
+                        return 0;
+                    else
+                        return 1;
+                };
+            }
+
+            if (length < 2)
+                return this;
+
+            return merge(
+                this.slice(0, middle).msort(compare),
+                this.slice(middle, length).msort(compare),
+                compare
+            );
+        }
+
+        function merge(left, right, compare) {
+
+            var result = [];
+
+            while (left.length > 0 || right.length > 0) {
+                if (left.length > 0 && right.length > 0) {
+                    if (compare(left[0], right[0]) <= 0) {
+                        result.push(left[0]);
+                        left = left.slice(1);
+                    }
+                    else {
+                        result.push(right[0]);
+                        right = right.slice(1);
+                    }
+                }
+                else if (left.length > 0) {
+                    result.push(left[0]);
+                    left = left.slice(1);
+                }
+                else if (right.length > 0) {
+                    result.push(right[0]);
+                    right = right.slice(1);
+                }
+            }
+            return result;
+        }
+    })();
+
 	var teams = {
 		holland: {teamName: 'Holland',  rank: 8, cont: 'Europe', flagImage: 'NLD.jpg', pot:"4", teamPhoto:"holland.jpg", winning: "" },
     	spain: { teamName: 'Spain', rank: 1, cont: 'Europe', flagImage: 'ESP.jpg', pot:"1", teamPhoto:"spain.jpg", winning: "" },
@@ -58,10 +122,9 @@ define(['jquery', 'seedrandom'], function($) {
 	var groupKeys = ['groupA', 'groupB', 'groupC','groupD', 'groupE', 'groupF', 'groupG', 'groupH'];
 	var teamImages;
 
-
-
  	function assignToGroup(team, randomGroupPot, currentPot){
- 		var randomNumber = Math.floor(Math.random() * 8);
+
+    var randomNumber = Math.floor(Math.pseudorandom() * 8);
  		var a = randomGroupPot.indexOf(randomNumber);
 
  		//Make sure Brazil is always in group A
@@ -121,9 +184,11 @@ define(['jquery', 'seedrandom'], function($) {
  		});
 
  		$.each(newGroups, function(index, group ) {
- 			var randomUpset = Math.random();
+ 			var randomUpset = Math.pseudorandom();
  			 if(randomUpset <= 0.1875){
-				var orderedGroup = group.teams.slice().sort(function(a,b){ return 0.5-Math.random();});
+				var orderedGroup = group.teams.slice().msort(function(a,b){
+                    return 0.5 - Math.pseudorandom();
+                });
 				orderedGroup[0].winner = "winner";
 				orderedGroup[0].groupStatus = "Winner of " + group.groupName;
 				orderedGroup[1].winner = "winner";
@@ -143,6 +208,8 @@ define(['jquery', 'seedrandom'], function($) {
  		return groups;
  	}
 
+
+
     // Stackoverflow solution http://stackoverflow.com/a/901144
     function getParameterByName(name) {
         name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
@@ -157,7 +224,7 @@ define(['jquery', 'seedrandom'], function($) {
         var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
         for( var i=0; i < 6; i++ )
-            text += possible.charAt(Math.floor(Math.random() * possible.length));
+            text += possible.charAt(Math.floor(Math.pseudorandom() * possible.length));
 
         return text;
     }
@@ -256,7 +323,7 @@ define(['jquery', 'seedrandom'], function($) {
 			var chanceToWin = calculateChanceToWin(differenceRank)
 			//var chanceToWin = 50 + differenceRank*1.3; //Chance that team 2 wins
 
-			var randomNumber = Math.random()*100;
+			var randomNumber = Math.pseudorandom()*100;
 			//Team 2 loses, team 1 wins and will be pushed in semifinals
 			if(randomNumber >= chanceToWin){
 				//Winners of q1 and q2 will go to s1
@@ -306,7 +373,7 @@ define(['jquery', 'seedrandom'], function($) {
 
 			//var chanceToWin = 50 + differenceRank*1.3; //Chance that team 2 wins
 
-			var randomNumber = Math.random()*100;
+			var randomNumber = Math.pseudorandom()*100;
 			//Team 2 loses, team 1 wins and will be pushed in semifinals
 			if(randomNumber >= chanceToWin){
 				//Winners of q1 and q2 will go to s1
@@ -337,7 +404,7 @@ define(['jquery', 'seedrandom'], function($) {
 			var differenceRank = semiFinal.teams[0].rank - semiFinal.teams[1].rank;
 			var chanceToWin = calculateChanceToWin(differenceRank);
 
-			var randomNumber = Math.random()*100;
+			var randomNumber = Math.pseudorandom()*100;
 
 			if(randomNumber >= chanceToWin){
 				final.f1.push(semiFinal.teams[0]);
@@ -353,7 +420,7 @@ define(['jquery', 'seedrandom'], function($) {
 		//Deciding who wins the final
 		var differenceRank = final.f1[0].rank - final.f1[1].rank;
 		var chanceToWin = calculateChanceToWin(differenceRank);
-		var randomNumber = Math.random()*100;
+		var randomNumber = Math.pseudorandom()*100;
 		if(randomNumber >= chanceToWin){
 			winner = final.f1[0];
 			final.f1[0].winFinal = "winner";
