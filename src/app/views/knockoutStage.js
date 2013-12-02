@@ -1,4 +1,4 @@
-define(['jquery', 'handlebars', 'config', 'text!templates/knockoutLayout.hbs', 'data/sample'],
+define(['jquery', 'handlebars', 'config', 'templates/knockoutLayout', 'data/sample'],
 	function($, handlebars, Config, KnockoutTemplate, TeamModel) {
 
     var Handlebars = handlebars.default;

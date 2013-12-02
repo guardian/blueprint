@@ -11,10 +11,10 @@ define([
   'data/sample',
 
   // Load text files (HTML, Handlebars, CSV, SVG)
-  'text!templates/html_layout.hbs',
-  'text!templates/handlebars_example.hbs',
-  'text!templates/knockoutLayout.hbs',
-  'text!templates/topbar.hbs'
+  'templates/html_layout',
+  'templates/handlebars_example',
+  'templates/knockoutLayout',
+  'templates/topbar'
 ], function(
   require,
   $,
