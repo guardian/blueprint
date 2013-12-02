@@ -12,7 +12,7 @@ define([], function() {
 
         var isProd = /gucode\.gnl|gu\.com|theguardian\.com|guardian\.co\.uk|amazonaws\.com/.test(document.location.host);
         var localPath = 'app/';
-        var remotePath = 'http://s3.amazonaws.com/gdn-cdn/next-gen/sport/ng-interactive/2013/nov/20/1/app/';
+        var remotePath = 'http://interactive.guim.co.uk/next-gen/football/ng-interactive/2013/dec/world-cup-draw-2014-create-your-own-draw-interactive/app/';
 
         var Config =  {
             basePath: (isProd) ?  remotePath : localPath
