@@ -21,10 +21,8 @@ define(['jquery', 'handlebars', 'config', 'text!templates/knockoutLayout.hbs', '
     }
 
     function generateTwitterLink() {
-
-        var text = encodeURIComponent(content.winner.teamName + ' will win World Cup 2014 according to my draw. Create your own with the @guardian draw simulator');
+        var text = encodeURIComponent('I did the @guardian_sport interactive 2014 World Cup Draw and '+content.winner.teamName+' went on to win. Now do yours at');
         var link = encodeURIComponent('http://gu.com/p/3kp92?seed=' + TeamModel.getSeed());
-
         var twitterLink = 'https://twitter.com/intent/tweet';
         twitterLink += '?text=' + text;
         twitterLink += '&url=' + link;
