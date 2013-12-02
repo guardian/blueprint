@@ -12,7 +12,7 @@ define(['jquery', 'handlebars', 'config', 'text!templates/knockoutLayout.hbs', '
     }
 
     function generateFacebookLink() {
-        var directURI = encodeURIComponent('http://gu.com/p/3kp92');
+        var directURI = encodeURIComponent('http://www.theguardian.com/p/3kp92');
         var link = encodeURIComponent('http://gu.com/p/3kp92?seed=' + TeamModel.getSeed());
         var fbURL = 'https://www.facebook.com/dialog/feed?app_id=180444840287';
         fbURL += '&redirect_uri=' + directURI;
