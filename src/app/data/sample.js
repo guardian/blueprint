@@ -1,38 +1,38 @@
 // Example of storing data
 define(['jquery', 'seedrandom'], function($) {
 	var teams = {
-		holland: {teamName: 'Holland',  rank: 8, showRank: 8, cont: 'Europe', flagImage: 'NLD.jpg', pot:"4", teamPhoto:"holland.jpg", winning: "" },
+		holland: {teamName: 'Holland',  rank: 6, showRank: 8, cont: 'Europe', flagImage: 'NLD.jpg', pot:"4", teamPhoto:"holland.jpg", winning: "" },
     	spain: { teamName: 'Spain', rank: 1, showRank: 1, cont: 'Europe', flagImage: 'ESP.jpg', pot:"1", teamPhoto:"spain.jpg", winning: "" },
-    	italy: {teamName: 'Italy',  rank: 9, showRank: 9, cont: 'Europe', flagImage: 'ITA.jpg', pot:"4", teamPhoto:"italy.jpg", winning: "" },
-    	ivorycoast: { teamName: "Cote d'Ivoire", rank: 17, showRank: 17, cont: 'Africa', flagImage: 'CIV.jpg', pot:"3", teamPhoto:"ivorycoast.jpg", winning: "" },
-    	usa: {teamName: 'USA',  rank: 13, cont: 'N America',showRank: 13, flagImage: 'USA.jpg', pot:"2", teamPhoto:"usa.jpg", winning: "" },
+    	italy: {teamName: 'Italy',  rank: 5, showRank: 9, cont: 'Europe', flagImage: 'ITA.jpg', pot:"4", teamPhoto:"italy.jpg", winning: "" },
+    	ivorycoast: { teamName: "Cote d'Ivoire", rank: 22, showRank: 17, cont: 'Africa', flagImage: 'CIV.jpg', pot:"3", teamPhoto:"ivorycoast.jpg", winning: "" },
+    	usa: {teamName: 'USA',  rank: 15, cont: 'N America',showRank: 13, flagImage: 'USA.jpg', pot:"2", teamPhoto:"usa.jpg", winning: "" },
     	argentina: { teamName: 'Argentina', rank: 3, showRank: 3, cont: 'S America', flagImage: 'ARG.jpg', pot:"1", teamPhoto:"argentina.jpg", winning: "" },
-    	brazil: {teamName: 'Brazil',  rank: 7, showRank: 11, cont: 'S America', flagImage: 'BRA.jpg', pot:"1", teamPhoto:"brazil.jpg", winning: "" },
-    	japan: { teamName: 'Japan', rank: 44,showRank: 44, cont: 'Asia', flagImage: 'JPN.jpg', pot:"2", teamPhoto:"japan.jpg", winning: "" },
-    	germany: {teamName: 'Germany',  rank: 2,showRank: 2, cont: 'Europe', flagImage: 'DEU.jpg', pot:"1", teamPhoto:"germany.jpg", winning: "" },
-    	england: { teamName: 'England', rank: 10, showRank: 10, cont: 'Europe', flagImage: 'ENG.jpg', pot:"4", teamPhoto:"england.jpg", winning: "" },
-    	russia: {teamName: 'Russia',  rank: 19, showRank: 19, cont: 'Europe', flagImage: 'RUS.jpg', pot:"4", teamPhoto:"russia.jpg", winning: "" },
-    	ecuador: { teamName: 'Ecuador', rank: 22, showRank: 22, cont: 'S America', flagImage: 'ECU.jpg', pot:"3", teamPhoto:"ecuador.jpg", winning: "" },
-    	australia: {teamName: 'Australia',  rank: 57, showRank: 57, cont: 'Oceania', flagImage: 'AUS.jpg', pot:"2", teamPhoto:"australia.jpg", winning: "" },
+    	brazil: {teamName: 'Brazil',  rank: 2, showRank: 11, cont: 'S America', flagImage: 'BRA.jpg', pot:"1", teamPhoto:"brazil.jpg", winning: "" },
+    	japan: { teamName: 'Japan', rank: 17,showRank: 44, cont: 'Asia', flagImage: 'JPN.jpg', pot:"2", teamPhoto:"japan.jpg", winning: "" },
+    	germany: {teamName: 'Germany',  rank: 4,showRank: 2, cont: 'Europe', flagImage: 'DEU.jpg', pot:"1", teamPhoto:"germany.jpg", winning: "" },
+    	england: { teamName: 'England', rank: 13, showRank: 10, cont: 'Europe', flagImage: 'ENG.jpg', pot:"4", teamPhoto:"england.jpg", winning: "" },
+    	russia: {teamName: 'Russia',  rank: 16, showRank: 19, cont: 'Europe', flagImage: 'RUS.jpg', pot:"4", teamPhoto:"russia.jpg", winning: "" },
+    	ecuador: { teamName: 'Ecuador', rank: 24, showRank: 22, cont: 'S America', flagImage: 'ECU.jpg', pot:"3", teamPhoto:"ecuador.jpg", winning: "" },
+    	australia: {teamName: 'Australia',  rank: 27, showRank: 57, cont: 'Oceania', flagImage: 'AUS.jpg', pot:"2", teamPhoto:"australia.jpg", winning: "" },
     	chile: { teamName: 'Chile', rank: 12, showRank: 12, cont: 'S America', flagImage: 'CHL.jpg', pot:"3", teamPhoto:"chile.jpg", winning: "" },
-    	ghana: {teamName: 'Ghana',  rank: 23, showRank: 23, cont: 'Africa', flagImage: 'GHA.jpg', pot:"3", teamPhoto:"ghana.jpg", winning: "" },
-    	costarica: { teamName: 'Costa Rica', rank: 31, showRank: 31, cont: 'N America', flagImage: 'CRI.jpg', pot:"2", teamPhoto:"costarica.jpg", winning: "" },
+    	ghana: {teamName: 'Ghana',  rank: 21, showRank: 23, cont: 'Africa', flagImage: 'GHA.jpg', pot:"3", teamPhoto:"ghana.jpg", winning: "" },
+    	costarica: { teamName: 'Costa Rica', rank: 29, showRank: 31, cont: 'N America', flagImage: 'CRI.jpg', pot:"2", teamPhoto:"costarica.jpg", winning: "" },
     	algeria: {teamName: 'Algeria', rank: 32, showRank: 32, cont: 'Africa', flagImage: 'DZA.jpg', pot:"3", teamPhoto:"algeria.jpg", winning: "" },
-    	cameroon: { teamName: 'Cameroon', rank: 59, showRank: 59, cont: 'Africa', flagImage: 'CMR.jpg', pot:"3", teamPhoto:"cameroon.jpg", winning: "" },
-    	nigeria: {teamName: 'Nigeria',  rank: 33, showRank: 33, cont: 'Africa', flagImage: 'NGA.jpg', pot:"3", teamPhoto:"nigeria.jpg", winning: "" },
-    	colombia: { teamName: "Colombia", rank: 15, showRank: 4, cont: 'S America', flagImage: 'COL.jpg', pot:"1", teamPhoto:"colombia.jpg", winning: "" },
-    	belgium: {teamName: 'Belgium',  rank: 5, showRank: 5, cont: 'Europe', flagImage: 'BEL.jpg', pot:"1", teamPhoto:"belgium.jpg", winning: "" },
-    	uruguay: { teamName: 'Uruguay', rank: 6, showRank: 6, cont: 'S America', flagImage: 'URY.jpg', pot:"1", teamPhoto:"uruguay.jpg", winning: "" },
-    	switzerland: {teamName: 'Switzerland',  rank: 11, showRank: 7, cont: 'Europe', flagImage: 'CHE.jpg', pot:"1", teamPhoto:"switzerland.jpg", winning: "" },
-    	portugal: { teamName: 'Portugal', rank: 14, showRank: 14, cont: 'Europe', flagImage: 'PRT.jpg', pot:"4", teamPhoto:"portugal.jpg", winning: "" },
-    	greece: {teamName: 'Greece',  rank: 16, showRank: 15, cont: 'Europe', flagImage: 'GRC.jpg', pot:"4", teamPhoto:"greece.jpg", winning: "" },
-    	bosniaherzegovina: { teamName: 'Bosnia-Herzegovina', rank: 20, showRank: 16, cont: 'Europe', flagImage: 'BIH.jpg', pot:"4", teamPhoto:"bosnia.jpg", winning: "" },
-    	croatia: {teamName: 'Croatia',  rank: 18, showRank: 18, cont: 'Europe', flagImage: 'HRV.jpg', pot:"4", teamPhoto:"croatia.jpg", winning: "" },
-    	france: { teamName: 'France', rank: 21, showRank: 21, cont: 'Europe', flagImage: 'FRA.jpg', pot:"3", teamPhoto:"france.jpg", winning: "" },
-    	iran: {teamName: 'Iran',  rank: 49, showRank: 49, cont: 'Asia', flagImage: 'IRN.jpg', pot:"2", teamPhoto:"iran.jpg", winning: "" },
-    	korearepublic: { teamName: 'Korea Republic', rank: 56, showRank: 56, cont: 'Asia', flagImage: 'KOR.jpg', pot:"2", teamPhoto:"southkorea.jpg", winning: "" },
-    	mexico: {teamName: 'Mexico',  rank: 24, showRank: 24, cont: 'N America', flagImage: 'MEX.jpg', pot:"2", teamPhoto:"mexico.jpg", winning: "" },
-    	honduras: { teamName: 'Honduras', rank: 34, showRank: 34, cont: 'N America', flagImage: 'HND.jpg', pot:"2", teamPhoto:"honduras.jpg", winning: "" }
+    	cameroon: { teamName: 'Cameroon', rank: 25, showRank: 59, cont: 'Africa', flagImage: 'CMR.jpg', pot:"3", teamPhoto:"cameroon.jpg", winning: "" },
+    	nigeria: {teamName: 'Nigeria',  rank: 20, showRank: 33, cont: 'Africa', flagImage: 'NGA.jpg', pot:"3", teamPhoto:"nigeria.jpg", winning: "" },
+    	colombia: { teamName: "Colombia", rank: 8, showRank: 4, cont: 'S America', flagImage: 'COL.jpg', pot:"1", teamPhoto:"colombia.jpg", winning: "" },
+    	belgium: {teamName: 'Belgium',  rank: 11, showRank: 5, cont: 'Europe', flagImage: 'BEL.jpg', pot:"1", teamPhoto:"belgium.jpg", winning: "" },
+    	uruguay: { teamName: 'Uruguay', rank: 9, showRank: 6, cont: 'S America', flagImage: 'URY.jpg', pot:"1", teamPhoto:"uruguay.jpg", winning: "" },
+    	switzerland: {teamName: 'Switzerland',  rank: 18, showRank: 7, cont: 'Europe', flagImage: 'CHE.jpg', pot:"1", teamPhoto:"switzerland.jpg", winning: "" },
+    	portugal: { teamName: 'Portugal', rank: 7, showRank: 14, cont: 'Europe', flagImage: 'PRT.jpg', pot:"4", teamPhoto:"portugal.jpg", winning: "" },
+    	greece: {teamName: 'Greece',  rank: 26, showRank: 15, cont: 'Europe', flagImage: 'GRC.jpg', pot:"4", teamPhoto:"greece.jpg", winning: "" },
+    	bosniaherzegovina: { teamName: 'Bosnia-Herzegovina', rank: 19, showRank: 16, cont: 'Europe', flagImage: 'BIH.jpg', pot:"4", teamPhoto:"bosnia.jpg", winning: "" },
+    	croatia: {teamName: 'Croatia',  rank: 14, showRank: 18, cont: 'Europe', flagImage: 'HRV.jpg', pot:"4", teamPhoto:"croatia.jpg", winning: "" },
+    	france: { teamName: 'France', rank: 10, showRank: 21, cont: 'Europe', flagImage: 'FRA.jpg', pot:"3", teamPhoto:"france.jpg", winning: "" },
+    	iran: {teamName: 'Iran',  rank: 30, showRank: 49, cont: 'Asia', flagImage: 'IRN.jpg', pot:"2", teamPhoto:"iran.jpg", winning: "" },
+    	korearepublic: { teamName: 'Korea Republic', rank: 28, showRank: 56, cont: 'Asia', flagImage: 'KOR.jpg', pot:"2", teamPhoto:"southkorea.jpg", winning: "" },
+    	mexico: {teamName: 'Mexico',  rank: 23, showRank: 24, cont: 'N America', flagImage: 'MEX.jpg', pot:"2", teamPhoto:"mexico.jpg", winning: "" },
+    	honduras: { teamName: 'Honduras', rank: 31, showRank: 34, cont: 'N America', flagImage: 'HND.jpg', pot:"2", teamPhoto:"honduras.jpg", winning: "" }
 
 	};
 
@@ -199,21 +199,27 @@ define(['jquery', 'seedrandom'], function($) {
 
 
 	function calculateChanceToWin(differenceRank){
-		if(differenceRank < -40){
+		if(differenceRank < -20){
 			return 14;
-		}else if(differenceRank >= -40 && differenceRank < -20){
+		}else if(differenceRank >= -20 && differenceRank < -15){
 			return 25;
-		}else if(differenceRank >= -20 && differenceRank <= -10){
-			return 37;
-		}else if(differenceRank >= -10 && differenceRank <= 0){
+		}else if(differenceRank >= -15 && differenceRank <= -10){
+			return 32;
+		}else if(differenceRank >= -10 && differenceRank <= -5){
+			return 40;
+		}else if(differenceRank >= -5 && differenceRank <= 0){
 			return 45;
-		}else if(differenceRank > 0 && differenceRank <= 10){
+		}
+
+		else if(differenceRank > 0 && differenceRank <= 5){
 			return 55;
-		}else if(differenceRank > 10 && differenceRank <= 20){
-			return 63;
-		}else if(differenceRank > 20 && differenceRank <= 40){
+		}else if(differenceRank > 5 && differenceRank <= 10){
+			return 60;
+		}else if(differenceRank > 10 && differenceRank <= 15){
+			return 68;
+		}else if(differenceRank > 15 && differenceRank <= 20){
 			return 75;
-		}else if(differenceRank > 40){
+		}else if(differenceRank > 20){
 			return 86;
 		}
 	}
