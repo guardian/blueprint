@@ -85,6 +85,7 @@ html{
   cursor: pointer;
   overflow: hidden;
   -webkit-transition: 0.2s all linear;
+  transition: 0.2s all linear;
 }
 
 .gu-interactive .moreInformation p.invisible{
@@ -122,18 +123,17 @@ html{
   background: #FFFEF2;
   margin-top:20px;
   -webkit-transition:opacity 0.5s linear;
+  transition:opacity 0.5s linear;
 }
 
+
 .gu-interactive .currentStatus p{
-  height: 30px;
-  font-size: 12px;
-  font-family: arial;
-  margin: 0;
-
-
-  
-  font-style:italic;
-  text-align: center;
+  height: 30px !important;
+  font-size: 12px !important;
+  font-family: arial !important;
+  margin: 0 !important;
+  font-style:italic !important;
+  text-align: center !important;
 }
 
 .gu-interactive .currentStatus p strong{
@@ -159,7 +159,9 @@ html{
 
 .gu-interactive .images img{
   opacity:0;
+  transition: opacity 0.5s linear;
   -webkit-transition: opacity 0.5s linear;
+  transition: opacity 0.5s linear;
 }
 
 
@@ -201,6 +203,7 @@ html{
   padding: 4px 0 !important;
   opacity:0;
   -webkit-transition: opacity 0.2s linear !important;
+  transition: opacity 0.2s linear !important;
   font-weight: normal !important;
   margin-bottom:0 !important;
   overflow: visible !important;
@@ -313,14 +316,14 @@ font-weight:bold;
 }
 
 .gu-interactive .disclaimerWinners{
-  margin: 0 auto 50px;
+  margin: 0 auto 40px;
   text-align: center;
   font-size:12px;
   font-family:Arial;
 }
 
 .gu-interactive .knockout_wrapper{
-  margin-top: 40px;
+  margin-top: 30px;
   display:none;
 }
 
@@ -435,9 +438,10 @@ font-weight:bold;
 
 .gu-interactive #topBar{
   height:36px;
-  width: 100%;
+  left:10px;
+  right:10px;
+  max-width:540px;
   background: rgba(255,255,255,0.8);
-  margin: 0 -10px;
   position: fixed;
   top:0;
   z-index:5;
@@ -487,6 +491,14 @@ font-weight:bold;
 
 .gu-interactive .share .reDrawBtn img{
   margin-right: 2px;
+}
+@media (min-width: 30em) {
+  .gu-interactive #topBar{
+   
+    left:20px;
+    right:20px;
+    
+  }
 }
 
 @media (min-width: 480px) {

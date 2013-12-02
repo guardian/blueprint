@@ -178,24 +178,12 @@ define([
     });
 
     $(document).on("scroll",function(){
-
       var winnersVisible = $('.knockout_wrapper').css('display');
-
-
-
-
-
-
-
-
       var newScroll = $body.scrollTop();
       var moreInformationOffset = $('.moreInformation').offset().top;
-      console.log(moreInformationOffset)
-      if(newScroll >= moreInformationOffset){
-        // if(winnersVisible == 'block'){
 
+      if(newScroll >= moreInformationOffset && winnersVisible != undefined){
           $topBar.css('visibility', 'visible');
-        // }
       }
       if(newScroll <= moreInformationOffset && oldScroll >moreInformationOffset){
         $topBar.css('visibility', 'hidden');
