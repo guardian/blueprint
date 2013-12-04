@@ -243,6 +243,14 @@ html{
   line-height:normal;
 }
 
+.gu-interactive .teamName span{
+  display: none;
+}
+
+.gu-interactive .teamName span.screwedEuropeanCountry{
+  display: inline;
+}
+
 .gu-interactive .finals .teamName{
   color: #a0a0a0;
 }
@@ -257,11 +265,11 @@ html{
 }
 
 .gu-interactive .knockout_wrapper .winner{
-  visibility: hidden;
+  display:none;
 }
 
 .gu-interactive .knockout_wrapper .finalswinner .winner{
-  visibility: visible;
+  display:block;
 }
 
 .gu-interactive .knockout_wrapper .team0 .winner{
@@ -335,7 +343,14 @@ font-weight:bold;
 }
 
 .gu-interactive .disclaimerWinners{
-  margin: 0 auto 40px;
+  margin: 0 auto 10px;
+  text-align: center;
+  font-size:12px;
+  font-family:Arial;
+}
+
+.gu-interactive .explainEuropeanCountry{
+   margin: 0 auto 40px;
   text-align: center;
   font-size:12px;
   font-family:Arial;

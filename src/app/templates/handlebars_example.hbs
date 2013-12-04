@@ -1,5 +1,5 @@
 
-<h3 class="finalsTitle">Group Stage</h3>
+<h3 class="finalsTitle">Goup Stage</h3>
 
 
 <div class="currentStatus"><p></p></div>
@@ -21,7 +21,7 @@
 				<li class="ranked">
 					<img class="countryFlag" src="{{ ../../img_path }}flags/{{this.flagImage}}"/>
 					<div class="teamInfo">
-						<div class="teamName">{{this.teamName}}</div>
+						<div class="teamName">{{this.teamName}}<span class="{{this.screwed}}">*</span></div>
 						<div class="{{this.winner}}"></div>
 						<div class="clearboth"></div>
 						<div class="teamPot">Pot {{this.pot}} ({{this.cont}}) – Rank {{this.showRank}}</div>
@@ -33,7 +33,7 @@
 				<li class="unranked">
 					<img class="countryFlag" src="{{ ../../img_path }}flags/{{this.flagImage}}"/>
 					<div class="teamInfo">
-						<div class="teamName">{{this.teamName}}</div>
+						<div class="teamName">{{this.teamName}}<span class="{{this.screwed}}">*</span></div>
 						<div class="{{this.winner}}"></div>
 						<div class="clearboth"></div>
 						<div class="teamPot">Pot {{this.pot}} ({{this.cont}}) – Rank {{this.showRank}}</div>
@@ -50,6 +50,7 @@
 </div>
 
 <button class="newDrawBtn showWinners">Who will win the World Cup?</button>
-<p class="disclaimerWinners">* Winners of matches based on Fifa rankings (with an added 'upset' percentage)</p>
+<p class="disclaimerWinners">Winners of matches based on Fifa rankings (with an added &lsquo;upset&rsquo; percentage)</p>
+<p class="explainEuropeanCountry">* One of the European teams is chosen at random to be drawn from pot 2 (arguably a tougher draw than otherwise)</p>
 <div class="knockout_wrapper"></div>
 
