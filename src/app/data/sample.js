@@ -132,19 +132,19 @@ define(['jquery', 'seedrandom'], function($) {
 			potC : { potName: "3", teams: [teams.japan, teams.iran, teams.korearepublic, teams.australia, teams.usa, teams.mexico, teams.costarica, teams.honduras]},
 			potD : { potName: "4", teams: [teams.holland, teams.italy, teams.england, teams.portugal, teams.greece, teams.bosniaherzegovina, teams.croatia, teams.russia, teams.france]}
     	};
-    	//reset potNumbers and screwedStatus
+    	
     	$.each(pots.potD.teams, function(i,a){
     		a.pot = 4;
-    		a.screwed = "";
+    		a.europeanException = "";
     	});
 		var potDArr = pots.potD.teams;
 		var randomNumberPot4 = Math.floor(Math.random()*9);
-		var screwedEuropeanCountry = potDArr[randomNumberPot4];
+		var europeanCountryException = potDArr[randomNumberPot4];
 
-		screwedEuropeanCountry.pot = 2;
-		screwedEuropeanCountry.screwed = "screwedEuropeanCountry";
+		europeanCountryException.pot = 2;
+		europeanCountryException.europeanException = "europeanException";
 		//add country to pot 2
-		pots.potB.teams.unshift(screwedEuropeanCountry);
+		pots.potB.teams.unshift(europeanCountryException);
 
 		//remove country from pot 4
 		potDArr.splice(randomNumberPot4,1);
@@ -180,7 +180,7 @@ define(['jquery', 'seedrandom'], function($) {
         });
 
         //The clash only occurs when France is in a group that contains a EU country from pot 1. We need to prevent that.
-        if (team.screwed === 'screwedEuropeanCountry' && EUTeams.length === 1) {
+        if (team.europeanException === 'europeanException' && EUTeams.length === 1) {
         	// console.log('Already 2 EU teams. Pick again', EUTeams)
             return assignToGroup(team, randomGroupPot, currentPot);
         }
