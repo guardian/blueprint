@@ -181,7 +181,7 @@ define(['jquery', 'seedrandom'], function($) {
 
         //The clash only occurs when France is in a group that contains a EU country from pot 1. We need to prevent that.
         if (team.screwed === 'screwedEuropeanCountry' && EUTeams.length === 1) {
-        	console.log('Already 2 EU teams. Pick again', EUTeams)
+        	// console.log('Already 2 EU teams. Pick again', EUTeams)
             return assignToGroup(team, randomGroupPot, currentPot);
         }
 
@@ -281,7 +281,7 @@ define(['jquery', 'seedrandom'], function($) {
 		$.each(groups, function(i, group) {
 			group.teams = [];
 		});
-		console.log(pots);
+		// console.log(pots);
 		$.each(pots, function(i, pot) {
 			var randomGroupPot = [];
 			$.each(pot.teams, function(j, team) {
