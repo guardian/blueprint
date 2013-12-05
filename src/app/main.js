@@ -68,10 +68,8 @@ define([
     if (!$drawPickerElm) {
       $drawPickerElm = drawPicker.render();
       $el.append($drawPickerElm);
-      console.log('4');
     } else {
       drawPicker.render();
-      console.log('hoi');
     }
 
     var $reDrawBtnEnd = $el.find('.share .reDrawBtn');
@@ -191,12 +189,9 @@ define([
       }
       oldScroll = newScroll;
     });
-      console.log(Data.getURLSeed());
-
 
       // Check if URL has seed and show result if it does.
       if (Data.getURLSeed()) {
-          console.log('sd');
           startDraw();
       }
   }
