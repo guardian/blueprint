@@ -163,7 +163,7 @@ math['seedrandom'] = function(seed, use_entropy) {
   // This function returns a random double in [0, 1) that contains
   // randomness in every bit of the mantissa of the IEEE 754 value.
 
-  math['pseudorandom'] = function() {         // Closure to return a random double:
+  math['random'] = function() {         // Closure to return a random double:
     var n = arc4.g(chunks),             // Start with a numerator n < 2 ^ 48
         d = startdenom,                 //   and denominator d = 2 ^ 48.
         x = 0;                          //   and no 'extra last byte'.
@@ -190,7 +190,7 @@ math['seedrandom'] = function(seed, use_entropy) {
 // An ARC4 implementation.  The constructor takes a key in the form of
 // an array of at most (width) integers that should be 0 <= x < (width).
 //
-// The g(count) method returns a pseudorandom integer that concatenates
+// The g(count) method returns a random integer that concatenates
 // the next (count) outputs from ARC4.  Its return value is a number x
 // that is in the range 0 <= x < (width ^ count).
 //
