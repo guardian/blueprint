@@ -3,6 +3,7 @@
 <head>
 
     <style>
+
         /* Simulating next-gen */
         body { margin: 0; padding: 0; }
         a { color: #005689; }
@@ -27,27 +28,38 @@
             .g-col2 { display: block; float: right; width: 300px; padding: 100px 10px 0 0; }
         }
     </style>
+    <meta name="viewport" content="initial-scale=1">
+    <title>World Cup draw</title>
 </head>
 <body>
     <div>
         <div class="g-header">theguardian - Interactive next-gen sampler</div>
+        <h1>test</h1>
         <div class="g-body">
             <div class="g-col1">Date: Monday xxx</div>
             <div class="g-content">
 
-                <h1>Heading</h1>
+                <h1>World Cup 2014: make your own draw</h1>
 
                 <figure class="gu-interactive"></figure>
 
             </div>
-            <div class="g-col2">Share links [x] [x] [x]</div>
+            <!-- <div class="g-col2">Share links [x] [x] [x]</div> -->
         </div>
     </div>
 
     <!-- Simulate loading JS into Guardian page -->
-    <script src="require.js"></script>
+    <!--<script src="require.js"></script>-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/curl/0.7.3/curl-for-jQuery/curl.js"></script>
     <script>
-        require(['boot.js'], function(app) {
+//        require(['boot.js'], function(app) {
+//            var el = document.querySelector('.gu-interactive');
+//            app.boot(el, window, {});
+//        });
+
+        var require = curl;
+
+        require(['boot.js']).then(function(app) {
             var el = document.querySelector('.gu-interactive');
             app.boot(el, window, {});
         });

@@ -1,7 +1,56 @@
-<ul>
-  {{#each people}}
-    <li>Name: {{ this.name }} - Age: {{ this.age }}</li>
-  {{/each}}
-</ul>
 
-<img src="{{ img_path }}gir.gif" />
+<h3 class="finalsTitle">Group Stage</h3>
+
+
+<div class="currentStatus"><p></p></div>
+<div class="groupStage">
+	{{#each groups}}
+		<div class="group">
+		<h4>{{this.groupName}}</h4>
+		<div class="images">
+			{{#each teamsOrdered}}
+
+				<img src="{{ ../../img_path }}teams/{{this.teamPhoto}}" class="teamPhoto teamPhoto{{@index}}"/>
+
+			{{/each}}
+			<div class="clearboth"></div>
+		</div>
+		<div class="teams">
+			<ul>
+			{{#each teamsOrdered}}
+				<li class="ranked">
+					<img class="countryFlag" src="{{ ../../img_path }}flags/{{this.flagImage}}"/>
+					<div class="teamInfo">
+						<div class="teamName">{{this.teamName}}<span class="{{this.europeanException}}">*</span></div>
+						<div class="{{this.winner}}"></div>
+						<div class="clearboth"></div>
+						<div class="teamPot">Pot {{this.pot}} ({{this.cont}}) – Rank {{this.showRank}}</div>
+					</div>
+					<div class="clearboth"></div>
+				</li>
+			{{/each}}
+			{{#each teams}}
+				<li class="unranked">
+					<img class="countryFlag" src="{{ ../../img_path }}flags/{{this.flagImage}}"/>
+					<div class="teamInfo">
+						<div class="teamName">{{this.teamName}}<span class="{{this.europeanException}}">*</span></div>
+						<div class="{{this.winner}}"></div>
+						<div class="clearboth"></div>
+						<div class="teamPot">Pot {{this.pot}} ({{this.cont}}) – Rank {{this.showRank}}</div>
+					</div>
+					<div class="clearboth"></div>
+				</li>
+			{{/each}}
+
+			</ul>
+		</div>
+		</div>
+  {{/each}}
+  <div class="clearboth"></div>
+</div>
+
+<button class="newDrawBtn showWinners">Who will win the World Cup?</button>
+<p class="disclaimerWinners">Winners of matches based on Fifa rankings (with an added &lsquo;upset&rsquo; percentage)</p>
+<p class="explainEuropeanCountry">* One of the European teams is chosen at random to be drawn from pot 2 (arguably a tougher draw than otherwise)</p>
+<div class="knockout_wrapper"></div>
+
